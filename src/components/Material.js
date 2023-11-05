@@ -1,8 +1,8 @@
 import React from "react";
-const Material = ({ list }) => {
+const Material = ({ list, handleChange }) => {
   return (
     <label>
-      <input type="radio" value={list} />
+      <input type="checkbox" name={list} value={list} onChange={handleChange} />
       {list}
     </label>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./OrderPage.css";
 import Material from "../components/Material";
+import { useEffect } from "react";
 const additionalMaterials = {
   positionAbsolute: [
     "Pepperoni",
@@ -20,19 +21,59 @@ const additionalMaterials = {
 };
 
 const OrderPage = () => {
-  const [counter, setCounter] = useState(1);
+  const [order, setOrder] = useState({
+    price: 85.5,
+    counter: 1,
+    size: "medium",
+    paste: "normal",
+  });
+  const [total, setTotal] = useState(order.price);
+
+  const handleChange = (e) => {
+    const { value, name, checked, type } = e.target;
+
+    setOrder({
+      ...order,
+      [name]: type == "checkbox" ? checked : value,
+    });
+  };
 
   const increaseCounter = (e) => {
     e.preventDefault();
-    setCounter(counter + 1);
+    setOrder({ ...order, ["counter"]: order["counter"] + 1 });
   };
 
   const decreaseCounter = (e) => {
     e.preventDefault();
-    if (counter > 1) {
-      setCounter(counter - 1);
+    if (order.counter > 1) {
+      setOrder({ ...order, ["counter"]: order["counter"] - 1 });
     }
   };
+  let sizeM = 1;
+  let thicknessM = 1;
+  useEffect(() => {
+    order.size == "medium"
+      ? (sizeM = 1)
+      : order.size == "small"
+      ? (sizeM = 0.9)
+      : (sizeM = 1.1);
+    order.paste == "normal"
+      ? (thicknessM = 1)
+      : order.paste == "thin"
+      ? (thicknessM = 0.9)
+      : (thicknessM = 1.1);
+    let additionalMaterial = 0;
+    for (const key in order) {
+      if (order[key] === true) {
+        additionalMaterial += 1;
+      }
+    }
+    setTotal(
+      order.price * order.counter * sizeM * thicknessM + additionalMaterial * 5
+    );
+
+    console.log(order);
+  }, [order]);
 
   return (
     <div className="orderPage">
@@ -58,22 +99,39 @@ const OrderPage = () => {
           <div className="size">
             <p>Boyut Seç</p>
             <label>
-              <input type="radio" name="size" value="s" />
+              <input
+                onChange={handleChange}
+                type="radio"
+                name="size"
+                value="small"
+              />
               Küçük
             </label>
             <label>
-              <input type="radio" name="size" value="m" />
+              <input
+                type="radio"
+                name="size"
+                onChange={handleChange}
+                value="medium"
+              />
               Orta
             </label>
             <label>
-              <input type="radio" name="size" value="l" />
+              <input
+                type="radio"
+                name="size"
+                onChange={handleChange}
+                value="large"
+              />
               Büyük
             </label>
           </div>
           <div className="paste">
             <p>Hamur Seç </p>
-            <select name="paste">
+            <select name="paste" onChange={handleChange}>
+              <option value="default">Lütfen hamur tipini seç</option>
               <option value="thin">İnce Hamur</option>
+              <option value="normal">Normal Hamur</option>
               <option value="thick">Kalın Hamur</option>
             </select>
           </div>
@@ -82,7 +140,11 @@ const OrderPage = () => {
             <p>En fazla 10 malzeme seçebilirsiniz. 5TL</p>
             <p className="additionalMaterials">
               {additionalMaterials.positionAbsolute.map((material, index) => (
-                <Material key={index} list={material} />
+                <Material
+                  key={index}
+                  list={material}
+                  handleChange={handleChange}
+                />
               ))}
             </p>
             <p>Spariş Notu</p>
@@ -96,7 +158,7 @@ const OrderPage = () => {
           <div className="priceCalculation">
             <div className="counter">
               <button onClick={decreaseCounter}>-</button>
-              <p>{counter}</p>
+              <p>{order.counter}</p>
               <button onClick={increaseCounter}>+</button>
             </div>
             <div className="summary">
@@ -107,7 +169,7 @@ const OrderPage = () => {
               </p>
               <p>
                 <span>Toplam</span>
-                <span>{counter * 85.5}</span>
+                <span>{total.toFixed(2)}</span>
               </p>
               <button> Spariş Ver</button>
             </div>
