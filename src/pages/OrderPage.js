@@ -20,6 +20,18 @@ const additionalMaterials = {
 };
 
 const OrderPage = () => {
+  const [counter, setCounter] = useState(1);
+
+  const increaseCounter = () => {
+    setCounter(counter + 1);
+  };
+
+  const decreaseCounter = () => {
+    if (counter > 1) {
+      setCounter(counter - 1);
+    }
+  };
+
   return (
     <div className="orderPage">
       <header>
@@ -80,7 +92,11 @@ const OrderPage = () => {
             />
           </div>
           <div className="priceCalculation">
-            <div className="counter"> Sayac gelecek</div>
+            <div className="counter">
+              <button onClick={decreaseCounter}>-</button>
+              <p>{counter}</p>
+              <button onClick={increaseCounter}>+</button>
+            </div>
             <div className="summary">
               <p>Spariş Toplamı</p>
               <p>
