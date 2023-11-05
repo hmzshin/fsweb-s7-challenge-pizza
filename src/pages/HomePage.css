@@ -50,3 +50,7 @@
   -ms-border-radius: 100px;
   -o-border-radius: 100px;
 }
+
+.homePage section button a {
+  text-decoration: none;
+}

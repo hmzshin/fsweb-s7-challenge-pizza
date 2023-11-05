@@ -1,5 +1,6 @@
 import React from "react";
 import "./HomePage.css";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -9,7 +10,9 @@ const HomePage = () => {
       </header>
       <section>
         <p>KOD ACIKTIRIR PİZZA, DOYURUR</p>
-        <button>ACIKTIM</button>
+        <button>
+          <Link to="/order">ACIKTIM</Link>
+        </button>
       </section>
     </div>
   );
