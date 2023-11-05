@@ -22,11 +22,13 @@ const additionalMaterials = {
 const OrderPage = () => {
   const [counter, setCounter] = useState(1);
 
-  const increaseCounter = () => {
+  const increaseCounter = (e) => {
+    e.preventDefault();
     setCounter(counter + 1);
   };
 
-  const decreaseCounter = () => {
+  const decreaseCounter = (e) => {
+    e.preventDefault();
     if (counter > 1) {
       setCounter(counter - 1);
     }
@@ -105,7 +107,7 @@ const OrderPage = () => {
               </p>
               <p>
                 <span>Toplam</span>
-                <span>Toplam Fiyat</span>
+                <span>{counter * 85.5}</span>
               </p>
               <button> Spariş Ver</button>
             </div>
