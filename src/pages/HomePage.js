@@ -1,5 +1,6 @@
 import React from "react";
-import pizza from "../assets/mvp-banner.png";
+import "./HomePage.css";
+
 const HomePage = () => {
   return (
     <div className="homePage">
