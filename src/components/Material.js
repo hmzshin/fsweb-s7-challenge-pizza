@@ -7,6 +7,7 @@ const Material = ({ list, handleChange }) => {
         id="materialList"
         name={list}
         onChange={handleChange}
+        data-cy={list}
       />
       {list}
     </label>

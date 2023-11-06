@@ -10,7 +10,7 @@
   align-items: center;
 }
 .homePage header {
-  width: 35%;
+  width: 600px;
   padding: 5% 0px;
   height: 20%;
 }
@@ -27,7 +27,7 @@
   justify-content: space-between;
   padding-top: 50px;
   height: 30%;
-  width: 30%;
+  width: 600px;
 }
 
 .homePage section p {

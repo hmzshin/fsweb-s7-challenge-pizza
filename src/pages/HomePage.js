@@ -10,7 +10,7 @@ const HomePage = () => {
       </header>
       <section>
         <p>KOD ACIKTIRIR PİZZA, DOYURUR</p>
-        <button>
+        <button className="cy-button">
           <Link to="/order">ACIKTIM</Link>
         </button>
       </section>

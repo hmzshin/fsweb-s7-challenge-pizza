@@ -31,7 +31,7 @@ const positionAbolute = {
   },
 };
 
-console.log(positionAbolute.addedMaterial());
+// console.log(positionAbolute.addedMaterial());
 
 const OrderPage = () => {
   const [order, setOrder] = useState(positionAbolute);
@@ -122,10 +122,11 @@ const OrderPage = () => {
       axios
         .post("https://reqres.in/api/users", summary)
         .then(function (response) {
+          window.location.assign("http://localhost:3000/success");
           console.log("post request is succesful", response.data);
         })
         .catch(function (error) {
-          console.log(error);
+          console.error("post request is failed", error);
         });
     }
   };
@@ -154,7 +155,7 @@ const OrderPage = () => {
 
   useEffect(() => {
     validationFunction();
-    console.log(validationErrors);
+    console.log("error messages", validationErrors);
   }, [order]);
 
   return (
@@ -163,7 +164,7 @@ const OrderPage = () => {
         <h1>TEKNOLOJİK YEMEKLER</h1>
       </header>
       <section>
-        <h3>Position Absolute Acı Pizza</h3>
+        <h3 className="cy-orderpage-h3">Position Absolute Acı Pizza</h3>
         <p>
           <span>85.50 TL</span>
           <span>4.9 </span>
@@ -186,6 +187,7 @@ const OrderPage = () => {
                 type="radio"
                 name="size"
                 value="small"
+                data-cy="small"
               />
               Küçük
             </label>
@@ -196,6 +198,7 @@ const OrderPage = () => {
                 onChange={handleChange}
                 value="medium"
                 defaultChecked
+                data-cy="medium"
               />
               Orta
             </label>
@@ -205,6 +208,7 @@ const OrderPage = () => {
                 name="size"
                 onChange={handleChange}
                 value="large"
+                data-cy="large"
               />
               Büyük
             </label>
@@ -221,6 +225,7 @@ const OrderPage = () => {
               name="paste"
               defaultValue={"default"}
               onChange={handleChange}
+              data-cy="select-paste"
             >
               <option value="default" disabled>
                 Lütfen hamur tipini seç
@@ -265,9 +270,13 @@ const OrderPage = () => {
 
           <div className="priceCalculation">
             <div className="counter">
-              <button onClick={decreaseCounter}>-</button>
+              <button data-cy="decrease-piece" onClick={decreaseCounter}>
+                -
+              </button>
               <p>{order.counter}</p>
-              <button onClick={increaseCounter}>+</button>
+              <button data-cy="increase-piece" onClick={increaseCounter}>
+                +
+              </button>
             </div>
             <div className="summary">
               <p>Sipariş Toplamı</p>
@@ -277,9 +286,12 @@ const OrderPage = () => {
               </p>
               <p>
                 <span>Toplam</span>
-                <span>{total.toFixed(2)}</span>
+                <span data-cy="total-price">{total.toFixed(2)}</span>
               </p>
-              <button type="submit"> Sipariş Ver</button>
+              <button data-cy="submit-button" type="submit">
+                {" "}
+                Sipariş Ver
+              </button>
             </div>
           </div>
         </form>
