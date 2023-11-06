@@ -3,7 +3,6 @@ import "./OrderPage.css";
 import Material from "../components/Material";
 import { useEffect } from "react";
 import * as Yup from "yup";
-import { paste } from "@testing-library/user-event/dist/paste";
 
 const initialData = {
   price: 85.5,
@@ -37,7 +36,7 @@ console.log(initialData.addedMaterial());
 const OrderPage = () => {
   const [order, setOrder] = useState(initialData);
   const [total, setTotal] = useState(order.price);
-  const [formError, setFormError] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
     positionAbsolute: "",
     paste: "",
@@ -91,7 +90,6 @@ const OrderPage = () => {
   }, [order]);
 
   const validationSchema = Yup.object().shape({
-    // Other validation rules for your form fields here
     positionAbsolute: Yup.object()
       .test("atLeastOneMaterial", "En az 4 tane malzeme seçiniz", (value) => {
         const selectedMaterials = Object.values(value).filter(
@@ -112,11 +110,11 @@ const OrderPage = () => {
     paste: Yup.string().required("Lütfen hamur tipini seçiniz"),
   });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const validationFunction = async () => {
     try {
       await validationSchema.validate(order, { abortEarly: false });
       console.log("submit");
+      setValidationErrors({});
     } catch (errors) {
       const object = {};
       // errrors.inner returns an array and we can reach error messages and key values
@@ -124,13 +122,25 @@ const OrderPage = () => {
         object[error.path] = error.message;
       });
 
+      if (!Object.keys(object).includes("paste")) {
+        object.paste = "";
+      }
+      if (!Object.keys(object).includes("positionAbsolute")) {
+        object.positionAbsolute = "";
+      }
+
       setValidationErrors(object);
     }
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsError(true);
+  };
 
   useEffect(() => {
-    console.log("validation errors", validationErrors);
-  }, [validationErrors]);
+    validationFunction();
+    console.log(validationErrors);
+  }, [order]);
   return (
     <div className="orderPage">
       <header>
@@ -186,8 +196,8 @@ const OrderPage = () => {
           <div className="paste">
             <p>
               Hamur Seç
-              {validationErrors.paste && (
-                <p className="errorMessage">{validationErrors.paste}</p>
+              {isError && (
+                <span className="errorMessage">{validationErrors.paste}</span>
               )}
             </p>
 
@@ -207,10 +217,10 @@ const OrderPage = () => {
           <div className="materials">
             <p>
               Ek Malzemeler
-              {validationErrors.positionAbsolute && (
-                <p className="errorMessage">
+              {isError && (
+                <span className="errorMessage">
                   {validationErrors.positionAbsolute}
-                </p>
+                </span>
               )}
             </p>
 

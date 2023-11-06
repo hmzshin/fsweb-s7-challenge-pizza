@@ -166,6 +166,7 @@ input::placeholder {
 }
 
 .orderPage section form .errorMessage {
+  display: block;
   padding: 0px;
   margin: 0px;
   height: 20px;
