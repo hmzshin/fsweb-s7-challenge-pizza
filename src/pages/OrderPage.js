@@ -28,46 +28,52 @@ const OrderPage = () => {
     paste: "normal",
   });
   const [total, setTotal] = useState(order.price);
+  const [isAble, setIsAble] = useState(false); // to render if the number of selected materials reaches number 10
+  const [addedMaterial, setAddedMaterial] = useState(0);
 
   const handleChange = (e) => {
-    const { value, name, checked, type } = e.target;
-
+    const { value, name, checked, type, id } = e.target;
     setOrder({
       ...order,
-      [name]: type == "checkbox" ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
     });
   };
 
   const increaseCounter = (e) => {
     e.preventDefault();
-    setOrder({ ...order, ["counter"]: order["counter"] + 1 });
+    setOrder({ ...order, counter: order["counter"] + 1 });
   };
 
   const decreaseCounter = (e) => {
     e.preventDefault();
     if (order.counter > 1) {
-      setOrder({ ...order, ["counter"]: order["counter"] - 1 });
+      setOrder({ ...order, counter: order["counter"] - 1 });
     }
   };
   let sizeM = 1;
   let thicknessM = 1;
   useEffect(() => {
-    order.size == "medium"
+    order.size === "medium"
       ? (sizeM = 1)
-      : order.size == "small"
+      : order.size === "small"
       ? (sizeM = 0.9)
       : (sizeM = 1.1);
-    order.paste == "normal"
+    order.paste === "normal"
       ? (thicknessM = 1)
-      : order.paste == "thin"
+      : order.paste === "thin"
       ? (thicknessM = 0.9)
       : (thicknessM = 1.1);
+
     let additionalMaterial = 0;
     for (const key in order) {
       if (order[key] === true) {
         additionalMaterial += 1;
       }
     }
+
+    setAddedMaterial(additionalMaterial);
+    console.log(additionalMaterial);
+
     setTotal(
       order.price * order.counter * sizeM * thicknessM + additionalMaterial * 5
     );
@@ -113,6 +119,7 @@ const OrderPage = () => {
                 name="size"
                 onChange={handleChange}
                 value="medium"
+                defaultChecked
               />
               Orta
             </label>
@@ -128,8 +135,14 @@ const OrderPage = () => {
           </div>
           <div className="paste">
             <p>Hamur Seç </p>
-            <select name="paste" onChange={handleChange}>
-              <option value="default">Lütfen hamur tipini seç</option>
+            <select
+              name="paste"
+              defaultValue={"default"}
+              onChange={handleChange}
+            >
+              <option value="default" disabled>
+                Lütfen hamur tipini seç
+              </option>
               <option value="thin">İnce Hamur</option>
               <option value="normal">Normal Hamur</option>
               <option value="thick">Kalın Hamur</option>
@@ -144,6 +157,7 @@ const OrderPage = () => {
                   key={index}
                   list={material}
                   handleChange={handleChange}
+                  isAble={isAble}
                 />
               ))}
             </p>
@@ -152,6 +166,7 @@ const OrderPage = () => {
             <input
               className="note"
               name="orderNote"
+              onChange={handleChange}
               placeholder="Siparişine eklemek istediğin bir not var mı ?"
             />
           </div>
