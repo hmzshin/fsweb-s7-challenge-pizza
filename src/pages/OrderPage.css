@@ -67,7 +67,7 @@
   width: 50%;
 }
 .orderPage section form .paste p {
-  margin-bottom: 15px;
+  height: 50px;
 }
 .orderPage section form .paste select {
   width: 200px;
@@ -82,6 +82,10 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+.orderPage section form .materials p:nth-child(1) {
+  height: 50px;
+  margin: 0px;
 }
 .orderPage section form .materials p:nth-child(2) {
   font-size: 1rem;
@@ -159,4 +163,13 @@ input::placeholder {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+}
+
+.orderPage section form .errorMessage {
+  padding: 0px;
+  margin: 0px;
+  height: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: red;
 }

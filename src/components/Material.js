@@ -6,7 +6,6 @@ const Material = ({ list, handleChange }) => {
         type="checkbox"
         id="materialList"
         name={list}
-        value={list}
         onChange={handleChange}
       />
       {list}

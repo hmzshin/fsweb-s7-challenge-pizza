@@ -2,41 +2,58 @@ import React, { useState } from "react";
 import "./OrderPage.css";
 import Material from "../components/Material";
 import { useEffect } from "react";
-const additionalMaterials = {
-  positionAbsolute: [
-    "Pepperoni",
-    "Sosis",
-    "Kanada Jambonu",
-    "Tavuk Izgara",
-    "Soğan",
-    "Domates",
-    "Mısır",
-    "Sucuk",
-    "Jalepeno",
-    "Sarımsak",
-    "Biber",
-    "Ananas",
-    "Kabak",
-  ],
+import * as Yup from "yup";
+import { paste } from "@testing-library/user-event/dist/paste";
+
+const initialData = {
+  price: 85.5,
+  counter: 1,
+  size: "medium",
+  paste: "",
+  positionAbsolute: {
+    Pepperoni: false,
+    Sosis: false,
+    "Kanada Jambonu": false,
+    "Tavuk Izgara": false,
+    Soğan: false,
+    Domates: false,
+    Mısır: false,
+    Sucuk: false,
+    Jalepeno: false,
+    Sarımsak: false,
+    Biber: false,
+    Ananas: false,
+    Kabak: false,
+  },
+  addedMaterial: function () {
+    return Object.keys(this.positionAbsolute).filter(
+      (key) => this.positionAbsolute[key]
+    ).length;
+  },
 };
 
+console.log(initialData.addedMaterial());
+
 const OrderPage = () => {
-  const [order, setOrder] = useState({
-    price: 85.5,
-    counter: 1,
-    size: "medium",
-    paste: "normal",
-  });
+  const [order, setOrder] = useState(initialData);
   const [total, setTotal] = useState(order.price);
-  const [isAble, setIsAble] = useState(false); // to render if the number of selected materials reaches number 10
-  const [addedMaterial, setAddedMaterial] = useState(0);
+  const [formError, setFormError] = useState(false);
+  const [validationErrors, setValidationErrors] = useState({
+    positionAbsolute: "",
+    paste: "",
+  });
 
   const handleChange = (e) => {
     const { value, name, checked, type, id } = e.target;
-    setOrder({
-      ...order,
-      [name]: type === "checkbox" ? checked : value,
-    });
+    if (id === "materialList") {
+      order.positionAbsolute[name] = checked;
+      setOrder({ ...order });
+    } else {
+      setOrder({
+        ...order,
+        [name]: type === "checkbox" ? checked : value,
+      });
+    }
   };
 
   const increaseCounter = (e) => {
@@ -50,6 +67,7 @@ const OrderPage = () => {
       setOrder({ ...order, counter: order["counter"] - 1 });
     }
   };
+
   let sizeM = 1;
   let thicknessM = 1;
   useEffect(() => {
@@ -64,23 +82,55 @@ const OrderPage = () => {
       ? (thicknessM = 0.9)
       : (thicknessM = 1.1);
 
-    let additionalMaterial = 0;
-    for (const key in order) {
-      if (order[key] === true) {
-        additionalMaterial += 1;
-      }
-    }
-
-    setAddedMaterial(additionalMaterial);
-    console.log(additionalMaterial);
-
     setTotal(
-      order.price * order.counter * sizeM * thicknessM + additionalMaterial * 5
+      order.price * order.counter * sizeM * thicknessM +
+        order.addedMaterial() * 5
     );
-
-    console.log(order);
+    console.log("order", order);
+    console.log("number of added material ", order.addedMaterial());
   }, [order]);
 
+  const validationSchema = Yup.object().shape({
+    // Other validation rules for your form fields here
+    positionAbsolute: Yup.object()
+      .test("atLeastOneMaterial", "En az 4 tane malzeme seçiniz", (value) => {
+        const selectedMaterials = Object.values(value).filter(
+          (isChecked) => isChecked
+        );
+        return selectedMaterials.length >= 4;
+      })
+      .test(
+        "atMostTenMaterials",
+        "En fazla 10 tane malzeme seçebilirsiniz",
+        (value) => {
+          const selectedMaterials = Object.values(value).filter(
+            (isChecked) => isChecked
+          );
+          return selectedMaterials.length <= 10;
+        }
+      ),
+    paste: Yup.string().required("Lütfen hamur tipini seçiniz"),
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await validationSchema.validate(order, { abortEarly: false });
+      console.log("submit");
+    } catch (errors) {
+      const object = {};
+      // errrors.inner returns an array and we can reach error messages and key values
+      errors.inner.forEach((error) => {
+        object[error.path] = error.message;
+      });
+
+      setValidationErrors(object);
+    }
+  };
+
+  useEffect(() => {
+    console.log("validation errors", validationErrors);
+  }, [validationErrors]);
   return (
     <div className="orderPage">
       <header>
@@ -101,7 +151,7 @@ const OrderPage = () => {
           düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli
           lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.
         </p>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="size">
             <p>Boyut Seç</p>
             <label>
@@ -134,7 +184,13 @@ const OrderPage = () => {
             </label>
           </div>
           <div className="paste">
-            <p>Hamur Seç </p>
+            <p>
+              Hamur Seç
+              {validationErrors.paste && (
+                <p className="errorMessage">{validationErrors.paste}</p>
+              )}
+            </p>
+
             <select
               name="paste"
               defaultValue={"default"}
@@ -149,18 +205,28 @@ const OrderPage = () => {
             </select>
           </div>
           <div className="materials">
-            <p>Ek Malzemeler</p>
+            <p>
+              Ek Malzemeler
+              {validationErrors.positionAbsolute && (
+                <p className="errorMessage">
+                  {validationErrors.positionAbsolute}
+                </p>
+              )}
+            </p>
+
             <p>En fazla 10 malzeme seçebilirsiniz. 5TL</p>
             <p className="additionalMaterials">
-              {additionalMaterials.positionAbsolute.map((material, index) => (
-                <Material
-                  key={index}
-                  list={material}
-                  handleChange={handleChange}
-                  isAble={isAble}
-                />
-              ))}
+              {Object.keys(initialData.positionAbsolute).map(
+                (material, index) => (
+                  <Material
+                    key={index}
+                    list={material}
+                    handleChange={handleChange}
+                  />
+                )
+              )}
             </p>
+
             <p>Spariş Notu</p>
 
             <input
@@ -170,6 +236,7 @@ const OrderPage = () => {
               placeholder="Siparişine eklemek istediğin bir not var mı ?"
             />
           </div>
+
           <div className="priceCalculation">
             <div className="counter">
               <button onClick={decreaseCounter}>-</button>
@@ -186,7 +253,7 @@ const OrderPage = () => {
                 <span>Toplam</span>
                 <span>{total.toFixed(2)}</span>
               </p>
-              <button> Spariş Ver</button>
+              <button type="submit"> Spariş Ver</button>
             </div>
           </div>
         </form>
