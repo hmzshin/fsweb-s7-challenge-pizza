@@ -93,7 +93,6 @@ const OrderPage = () => {
     try {
       await validationSchema.validate(order, { abortEarly: false });
       setIsError(false);
-      setValidationErrors({});
     } catch (errors) {
       const object = {};
       // errrors.inner returns an array and we can reach error messages and key values
@@ -217,7 +216,9 @@ const OrderPage = () => {
             <p>
               Hamur Seç
               {isShown && (
-                <span className="errorMessage">{validationErrors.paste}</span>
+                <span data-cy="paste-error" className="errorMessage">
+                  {validationErrors.paste}
+                </span>
               )}
             </p>
 
@@ -239,7 +240,7 @@ const OrderPage = () => {
             <p>
               Ek Malzemeler
               {isShown && (
-                <span className="errorMessage">
+                <span data-cy="ingredients-error" className="errorMessage">
                   {validationErrors.ingredients}
                 </span>
               )}

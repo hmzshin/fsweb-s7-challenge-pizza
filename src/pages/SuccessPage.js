@@ -1,6 +1,10 @@
 import React from "react";
 import "./SuccessPage.css";
 const SuccessPage = () => {
-  return <div className="successPage">naber</div>;
+  return (
+    <div data-cy="success-page" className="successPage">
+      Successfull
+    </div>
+  );
 };
 export default SuccessPage;
