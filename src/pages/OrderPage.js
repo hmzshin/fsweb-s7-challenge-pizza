@@ -70,16 +70,16 @@ const OrderPage = () => {
   let sizeM = 1;
   let thicknessM = 1;
   useEffect(() => {
-    order.size === "medium"
-      ? (sizeM = 1)
+    order.size === "large"
+      ? (sizeM = 1.1)
       : order.size === "small"
       ? (sizeM = 0.9)
-      : (sizeM = 1.1);
-    order.paste === "normal"
-      ? (thicknessM = 1)
+      : (sizeM = 1);
+    order.paste === "thick"
+      ? (thicknessM = 1.1)
       : order.paste === "thin"
       ? (thicknessM = 0.9)
-      : (thicknessM = 1.1);
+      : (thicknessM = 1);
 
     setTotal(
       order.price * order.counter * sizeM * thicknessM +
@@ -113,7 +113,6 @@ const OrderPage = () => {
   const validationFunction = async () => {
     try {
       await validationSchema.validate(order, { abortEarly: false });
-      console.log("submit");
       setValidationErrors({});
     } catch (errors) {
       const object = {};
@@ -135,12 +134,14 @@ const OrderPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsError(true);
+    console.log("submit");
   };
 
   useEffect(() => {
     validationFunction();
     console.log(validationErrors);
   }, [order]);
+
   return (
     <div className="orderPage">
       <header>
