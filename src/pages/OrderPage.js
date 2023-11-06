@@ -93,7 +93,12 @@ const OrderPage = () => {
     try {
       await validationSchema.validate(order, { abortEarly: false });
       setIsError(false);
+      setValidationErrors({
+        ingredients: "",
+        paste: "",
+      });
     } catch (errors) {
+      setIsError(true);
       const object = {};
       // errrors.inner returns an array and we can reach error messages and key values
       errors.inner.forEach((error) => {

@@ -121,7 +121,7 @@ describe("Pizza orderpage form validation", () => {
     cy.get('[data-cy="submit-button"]')
       .click()
       .then(() => {
-        cy.wait(3000);
+        cy.wait(2000);
         cy.get('[data-cy="ingredients-error"]').should(
           "have.text",
           "En fazla 10 tane malzeme seçebilirsiniz"
