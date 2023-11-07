@@ -79,7 +79,10 @@ describe("Pizza orderpage form validation", () => {
     cy.get('[data-cy="submit-button"]')
       .click()
       .then(() => {
-        cy.get('[data-cy="success-page"]').should("have.text", "Successfull");
+        cy.get('[data-cy="success-page"]').should(
+          "have.text",
+          "TEBRİKLER! SİPARİŞİNİZ ALINDI!"
+        );
       });
   });
   it("submit order - 2", () => {
@@ -94,7 +97,10 @@ describe("Pizza orderpage form validation", () => {
     cy.get('[data-cy="submit-button"]')
       .click()
       .then(() => {
-        cy.get('[data-cy="success-page"]').should("have.text", "Successfull");
+        cy.get('[data-cy="success-page"]').should(
+          "have.text",
+          "TEBRİKLER! SİPARİŞİNİZ ALINDI!"
+        );
       });
   });
   it("submit order - 3", () => {
