@@ -6,7 +6,7 @@ import SuccessPage from "../pages/SuccessPage";
 
 const Main = () => {
   return (
-    <div>
+    <>
       <Switch>
         <Route path="/" exact>
           <HomePage />
@@ -18,7 +18,7 @@ const Main = () => {
           <SuccessPage />
         </Route>
       </Switch>
-    </div>
+    </>
   );
 };
 

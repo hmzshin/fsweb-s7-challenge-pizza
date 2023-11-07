@@ -6,8 +6,8 @@ describe("User Log in Validation Tests", () => {
   });
 
   it("go to orderpage", () => {
-    cy.get(".cy-button").click();
-    cy.get(".cy-orderpage-h3").should(
+    cy.get('[data-cy="to-orderpage-button"]').click();
+    cy.get('[data-cy="orderpage-h3"]').should(
       "have.text",
       "Position Absolute Acı Pizza"
     );

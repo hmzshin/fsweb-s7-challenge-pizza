@@ -171,13 +171,13 @@ const OrderPage = () => {
         <h1>TEKNOLOJİK YEMEKLER</h1>
       </header>
       <section>
-        <h3 className="cy-orderpage-h3">Position Absolute Acı Pizza</h3>
-        <p>
+        <h3 data-cy="orderpage-h3">Position Absolute Acı Pizza</h3>
+        <p className="priceInfo">
           <span>85.50 TL</span>
           <span>4.9 </span>
-          <span>200</span>
+          <span>(200)</span>
         </p>
-        <p>
+        <p className="pizzaExplanation">
           Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı
           pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli
           diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun

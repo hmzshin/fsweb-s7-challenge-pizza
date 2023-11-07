@@ -1,3 +1,10 @@
+/* font-family: 'Barlow', sans-serif;
+font-family: 'Bebas Neue', sans-serif;
+font-family: 'Merienda', cursive;
+font-family: 'Roboto', sans-serif; */
+
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300;400&display=swap");
+
 .homePage {
   background-image: url("../assets/mvp-banner.png");
   background-position: center;
@@ -10,13 +17,17 @@
   align-items: center;
 }
 .homePage header {
-  width: 600px;
-  padding: 5% 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
   height: 20%;
 }
+
 .homePage header h1 {
-  text-align: center;
-  font-size: 2rem;
+  font-family: "Londrina Solid", sans-serif;
+  font-weight: 300;
+  font-size: 2.5rem;
   color: white;
 }
 
@@ -25,22 +36,24 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding-top: 50px;
+  padding-top: 20px;
   height: 30%;
-  width: 600px;
+  max-width: 600px;
 }
 
 .homePage section p {
-  height: 50%;
   width: 100%;
   font-size: 4rem;
   color: white;
   text-align: center;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 100;
 }
 
 .homePage section button {
   height: 50px;
   width: 200px;
+  font-weight: bold;
   border-radius: 100px;
   border: none;
   font-size: 1rem;
@@ -53,4 +66,26 @@
 
 .homePage section button a {
   text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .homePage header h1 {
+    font-size: 2rem;
+  }
+  .homePage section p {
+    font-size: 3rem;
+  }
+  .homePage section {
+    padding-top: 10px;
+    justify-content: space-around;
+  }
+  .homePage section button {
+    height: 30px;
+    width: 150px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+  }
 }
