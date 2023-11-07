@@ -186,7 +186,7 @@ const OrderPage = () => {
           lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.
         </p>
         <form onSubmit={handleSubmit}>
-          <div className="size">
+          <div className="size ">
             <p>Boyut Seç</p>
             <label>
               <input
@@ -292,17 +292,21 @@ const OrderPage = () => {
               <p>Sipariş Toplamı</p>
               <p>
                 <span>Seçimler</span>
-                <span>{order.addedMaterial() * 5}</span>
+                <span>{order.addedMaterial() * 5}₺</span>
               </p>
               <p>
                 <span>Toplam</span>
-                <span data-cy="total-price">{total.toFixed(2)}</span>
+                <span data-cy="total-price">{total.toFixed(2)}₺</span>
               </p>
-              <button data-cy="submit-button" type="submit">
-                {" "}
-                Sipariş Ver
-              </button>
             </div>
+            <button
+              className="submit-button"
+              data-cy="submit-button"
+              type="submit"
+            >
+              {" "}
+              Sipariş Ver
+            </button>
           </div>
         </form>
       </section>
