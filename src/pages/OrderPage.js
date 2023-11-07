@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import * as Yup from "yup";
 import axios from "axios";
 import Header from "../components/Header";
+import { useHistory } from "react-router-dom";
 
 const positionAbolute = {
   price: 85.5,
@@ -43,7 +44,7 @@ const OrderPage = () => {
     ingredients: "",
     paste: "",
   });
-
+  const history = useHistory();
   const handleChange = (e) => {
     const { value, name, checked, type, id } = e.target;
     if (id === "materialList") {
@@ -122,12 +123,14 @@ const OrderPage = () => {
     setIsShown(true);
     const summary = { ...order };
     summary.totalPrice = total.toFixed(2);
+    summary.name = "positionAbolute";
 
     if (!isError) {
       axios
         .post("https://reqres.in/api/users", summary)
         .then(function (response) {
-          window.location.assign("http://localhost:3000/success");
+          // window.location.assign("http://localhost:3000/success");
+          history.push("/success");
           console.log("post request is succesful", response.data);
         })
         .catch(function (error) {

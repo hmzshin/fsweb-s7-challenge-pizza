@@ -5,7 +5,7 @@
 describe("Pizza orderpage price calculation", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000/");
-    cy.get(".cy-button").click();
+    cy.get('[data-cy="to-orderpage-button"]').click();
   });
 
   it("calculate the total price correctly - 1", () => {
@@ -18,7 +18,7 @@ describe("Pizza orderpage price calculation", () => {
     cy.get('[data-cy="increase-piece"]').click();
     cy.get('[data-cy="increase-piece"]').click();
     cy.get('[data-cy="decrease-piece"]').click();
-    cy.get('[data-cy="total-price"]').should("have.text", 178.51);
+    cy.get('[data-cy="total-price"]').should("have.text", "178.51₺");
   });
   it("calculate the total price correctly - 2", () => {
     cy.get('[data-cy="medium"]').click();
@@ -29,7 +29,7 @@ describe("Pizza orderpage price calculation", () => {
     cy.get('[data-cy="Kanada Jambonu"]').click();
     cy.get('[data-cy="Kabak"]').click();
     cy.get('[data-cy="Mısır"]').click();
-    cy.get('[data-cy="total-price"]').should("have.text", 124.05);
+    cy.get('[data-cy="total-price"]').should("have.text", "124.05₺");
   });
   it("calculate the total price correctly - 3", () => {
     cy.get('[data-cy="large"]').click();
@@ -39,7 +39,7 @@ describe("Pizza orderpage price calculation", () => {
     cy.get('[data-cy="Kanada Jambonu"]').click();
     cy.get('[data-cy="Kabak"]').click();
     cy.get('[data-cy="Mısır"]').click();
-    cy.get('[data-cy="total-price"]').should("have.text", 119.05);
+    cy.get('[data-cy="total-price"]').should("have.text", "119.05₺");
   });
   it("calculate the total price correctly - 4", () => {
     cy.get('[data-cy="select-paste"]').select("thick");
@@ -57,14 +57,14 @@ describe("Pizza orderpage price calculation", () => {
     cy.get('[data-cy="increase-piece"]').click();
     cy.get('[data-cy="increase-piece"]').click();
     cy.get('[data-cy="decrease-piece"]').click();
-    cy.get('[data-cy="total-price"]').should("have.text", 620.25);
+    cy.get('[data-cy="total-price"]').should("have.text", "620.25₺");
   });
 });
 
 describe("Pizza orderpage form validation", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000/");
-    cy.get(".cy-button").click();
+    cy.get('[data-cy="to-orderpage-button"]').click();
   });
 
   it("submit order - 1", () => {
@@ -140,7 +140,7 @@ describe("Pizza orderpage form validation", () => {
           "have.text",
           "En fazla 10 tane malzeme seçebilirsiniz"
         );
-        cy.get(".cy-orderpage-h3").should(
+        cy.get('[data-cy="orderpage-h3"]').should(
           "have.text",
           "Position Absolute Acı Pizza"
         );
@@ -160,7 +160,7 @@ describe("Pizza orderpage form validation", () => {
           "have.text",
           "Lütfen hamur tipini seçiniz"
         );
-        cy.get(".cy-orderpage-h3").should(
+        cy.get('[data-cy="orderpage-h3"]').should(
           "have.text",
           "Position Absolute Acı Pizza"
         );

@@ -130,6 +130,7 @@ font-family: 'Roboto', sans-serif; */
   margin-top: 50px;
 }
 .orderPage section form .materials .note {
+  font-size: 1rem;
   margin-right: 0px;
   border: 2px solid #d9d9d9;
   border-radius: 5px;
@@ -162,24 +163,28 @@ input::placeholder {
   width: 100%;
   height: 50px;
   border: none;
-  border-radius: 7px;
   font-size: 1.5rem;
   background-color: #fdc913;
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  -ms-border-radius: 7px;
-  -o-border-radius: 7px;
 }
 
 .orderPage section form .priceCalculation .counter button {
   width: 50px;
   height: 50px;
 }
+.orderPage section form .priceCalculation .counter button:nth-child(1) {
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+.orderPage section form .priceCalculation .counter button:nth-child(2) {
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
 .orderPage section form .priceCalculation .counter p {
   width: 50px;
   height: 50px;
   padding: 10px;
   text-align: center;
+  border: 1px solid #d9d9d9;
 }
 
 .orderPage section form .priceCalculation .summary {
@@ -212,6 +217,7 @@ input::placeholder {
 
 .orderPage section form .priceCalculation .submit-button {
   width: 60%;
+
   display: block;
 }
 .orderPage section form .errorMessage {
