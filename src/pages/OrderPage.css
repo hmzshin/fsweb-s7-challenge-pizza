@@ -175,7 +175,7 @@ input::placeholder {
   border-top-left-radius: 7px;
   border-bottom-left-radius: 7px;
 }
-.orderPage section form .priceCalculation .counter button:nth-child(2) {
+.orderPage section form .priceCalculation .counter button:nth-child(3) {
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
 }
@@ -193,12 +193,9 @@ input::placeholder {
   flex-direction: column;
   align-items: center;
   border: 2px solid #d9d9d9;
-  border-radius: 7px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
   padding: 20px 30px 20px 40px;
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  -ms-border-radius: 7px;
-  -o-border-radius: 7px;
 }
 .orderPage section form .priceCalculation .summary p {
   font-size: 1.3rem;
@@ -216,9 +213,9 @@ input::placeholder {
 }
 
 .orderPage section form .priceCalculation .submit-button {
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
   width: 60%;
-
-  display: block;
 }
 .orderPage section form .errorMessage {
   display: block;

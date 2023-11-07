@@ -129,7 +129,6 @@ const OrderPage = () => {
       axios
         .post("https://reqres.in/api/users", summary)
         .then(function (response) {
-          // window.location.assign("http://localhost:3000/success");
           history.push("/success");
           console.log("post request is succesful", response.data);
         })
