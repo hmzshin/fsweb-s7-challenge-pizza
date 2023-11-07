@@ -150,8 +150,8 @@ const OrderPage = () => {
       : (thicknessM = 1);
 
     setTotal(
-      order.price * order.counter * sizeM * thicknessM +
-        order.addedMaterial() * 5
+      (order.price * sizeM * thicknessM + order.addedMaterial() * 5) *
+        order.counter
     );
     console.log("order", order);
     console.log("number of added material ", order.addedMaterial());
@@ -159,8 +159,11 @@ const OrderPage = () => {
 
   useEffect(() => {
     validationFunction();
-    console.log("error messages", validationErrors);
   }, [order]);
+
+  useEffect(() => {
+    console.log("validation errors:", validationErrors);
+  }, [validationErrors]);
 
   return (
     <div className="orderPage">
@@ -271,6 +274,7 @@ const OrderPage = () => {
               name="orderNote"
               onChange={handleChange}
               placeholder="Siparişine eklemek istediğin bir not var mı ?"
+              data-cy="comment-input"
             />
           </div>
 

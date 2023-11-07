@@ -16,7 +16,9 @@ describe("Pizza orderpage price calculation", () => {
     cy.get('[data-cy="Pepperoni"]').click();
     cy.get('[data-cy="Sosis"]').click();
     cy.get('[data-cy="increase-piece"]').click();
-    cy.get('[data-cy="total-price"]').should("have.text", 158.51);
+    cy.get('[data-cy="increase-piece"]').click();
+    cy.get('[data-cy="decrease-piece"]').click();
+    cy.get('[data-cy="total-price"]').should("have.text", 178.51);
   });
   it("calculate the total price correctly - 2", () => {
     cy.get('[data-cy="medium"]').click();
@@ -51,7 +53,11 @@ describe("Pizza orderpage price calculation", () => {
     cy.get('[data-cy="increase-piece"]').click();
     cy.get('[data-cy="increase-piece"]').click();
     cy.get('[data-cy="increase-piece"]').click();
-    cy.get('[data-cy="total-price"]').should("have.text", 500.25);
+    cy.get('[data-cy="decrease-piece"]').click();
+    cy.get('[data-cy="increase-piece"]').click();
+    cy.get('[data-cy="increase-piece"]').click();
+    cy.get('[data-cy="decrease-piece"]').click();
+    cy.get('[data-cy="total-price"]').should("have.text", 620.25);
   });
 });
 
@@ -69,6 +75,7 @@ describe("Pizza orderpage form validation", () => {
     cy.get('[data-cy="Pepperoni"]').click();
     cy.get('[data-cy="Sosis"]').click();
     cy.get('[data-cy="increase-piece"]').click();
+    cy.get('[data-cy="comment-input"]').type("Lorem ipsum dolor sit amet.");
     cy.get('[data-cy="submit-button"]')
       .click()
       .then(() => {
@@ -95,6 +102,7 @@ describe("Pizza orderpage form validation", () => {
     cy.get('[data-cy="select-paste"]').select("normal");
     cy.get('[data-cy="Soğan"]').click();
     cy.get('[data-cy="Mısır"]').click();
+    cy.get('[data-cy="comment-input"]').type("Lorem ipsum dolor sit amet.");
     cy.get('[data-cy="submit-button"]')
       .click()
       .then(() => {
@@ -125,6 +133,26 @@ describe("Pizza orderpage form validation", () => {
         cy.get('[data-cy="ingredients-error"]').should(
           "have.text",
           "En fazla 10 tane malzeme seçebilirsiniz"
+        );
+        cy.get(".cy-orderpage-h3").should(
+          "have.text",
+          "Position Absolute Acı Pizza"
+        );
+      });
+  });
+  it("submit order - 5", () => {
+    cy.get('[data-cy="Pepperoni"]').click();
+    cy.get('[data-cy="Domates"]').click();
+    cy.get('[data-cy="Sarımsak"]').click();
+    cy.get('[data-cy="Mısır"]').click();
+    cy.get('[data-cy="comment-input"]').type("Lorem ipsum dolor sit amet.");
+    cy.get('[data-cy="submit-button"]')
+      .click()
+      .then(() => {
+        cy.wait(2000);
+        cy.get('[data-cy="paste-error"]').should(
+          "have.text",
+          "Lütfen hamur tipini seçiniz"
         );
         cy.get(".cy-orderpage-h3").should(
           "have.text",
