@@ -1,11 +1,10 @@
 import React from "react";
 import "./SuccessPage.css";
+import Header from "../components/Header";
 const SuccessPage = () => {
   return (
     <div className="successPage">
-      <header>
-        <h1>TEKNOLOJİK YEMEKLER</h1>
-      </header>
+      <Header />
       <section>
         <p data-cy="success-page">
           TEBRİKLER! <br />

@@ -8,7 +8,7 @@ const Header = () => {
         <h1>Teknolojik Yemekler</h1>
         <nav>
           <Link to="/">Ana Sayfa</Link>
-          <Link>Spariş Oluştur</Link>
+          <Link to="/order">Spariş Oluştur</Link>
         </nav>
       </div>
     </header>
