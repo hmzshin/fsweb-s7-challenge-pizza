@@ -8,6 +8,7 @@ import Header from "../components/Header";
 import { useHistory } from "react-router-dom";
 
 const positionAbolute = {
+  name: "positionAbsolute",
   price: 85.5,
   counter: 1,
   size: "medium",
@@ -123,7 +124,6 @@ const OrderPage = () => {
     setIsShown(true);
     const summary = { ...order };
     summary.totalPrice = total.toFixed(2);
-    summary.name = "positionAbolute";
 
     if (!isError) {
       axios
