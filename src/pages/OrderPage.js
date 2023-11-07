@@ -4,6 +4,7 @@ import Material from "../components/Material";
 import { useEffect } from "react";
 import * as Yup from "yup";
 import axios from "axios";
+import Header from "../components/Header";
 
 const positionAbolute = {
   price: 85.5,
@@ -167,9 +168,7 @@ const OrderPage = () => {
 
   return (
     <div className="orderPage">
-      <header>
-        <h1>TEKNOLOJİK YEMEKLER</h1>
-      </header>
+      <Header />
       <section>
         <h3 data-cy="orderpage-h3">Position Absolute Acı Pizza</h3>
         <p className="priceInfo">

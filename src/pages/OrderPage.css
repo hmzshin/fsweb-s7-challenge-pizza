@@ -9,17 +9,6 @@ font-family: 'Roboto', sans-serif; */
   align-items: center;
   font-family: "Barlow", sans-serif;
 }
-.orderPage header {
-  width: 100%;
-  height: 10vh;
-  padding: 100px 0px;
-  background-color: #ce2829;
-  color: white;
-  text-align: center;
-}
-.orderPage header h1 {
-  font-size: 3rem;
-}
 
 .orderPage section {
   display: flex;
