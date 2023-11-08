@@ -226,3 +226,13 @@ input::placeholder {
   font-weight: bold;
   color: red;
 }
+
+@media (max-width: 600px) {
+  .orderPage {
+    padding: 0px 20px;
+  }
+  .orderPage section form .paste select {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}

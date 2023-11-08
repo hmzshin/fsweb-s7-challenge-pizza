@@ -165,147 +165,152 @@ const OrderPage = () => {
   }, [validationErrors]);
 
   return (
-    <div className="orderPage">
+    <>
       <Header />
-      <section>
-        <h3 data-cy="orderpage-h3">Position Absolute Acı Pizza</h3>
-        <p className="priceInfo">
-          <span>85.50 TL</span>
-          <span>4.9 </span>
-          <span>(200)</span>
-        </p>
-        <p className="pizzaExplanation">
-          Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı
-          pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli
-          diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun
-          ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak,
-          düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli
-          lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.
-        </p>
-        <form onSubmit={handleSubmit}>
-          <div className="size ">
-            <p>Boyut Seç</p>
-            <label>
-              <input
-                onChange={handleChange}
-                type="radio"
-                name="size"
-                value="small"
-                data-cy="small"
-              />
-              Küçük
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="size"
-                onChange={handleChange}
-                value="medium"
-                defaultChecked
-                data-cy="medium"
-              />
-              Orta
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="size"
-                onChange={handleChange}
-                value="large"
-                data-cy="large"
-              />
-              Büyük
-            </label>
-          </div>
-          <div className="paste">
-            <p>
-              Hamur Seç
-              {isShown && validationErrors.paste && (
-                <span data-cy="paste-error" className="errorMessage">
-                  {validationErrors.paste}
-                </span>
-              )}
-            </p>
-
-            <select
-              name="paste"
-              defaultValue={"default"}
-              onChange={handleChange}
-              data-cy="select-paste"
-            >
-              <option value="default" disabled>
-                Lütfen hamur tipini seç
-              </option>
-              <option value="thin">İnce Hamur</option>
-              <option value="normal">Normal Hamur</option>
-              <option value="thick">Kalın Hamur</option>
-            </select>
-          </div>
-          <div className="materials">
-            <p>
-              Ek Malzemeler
-              {isShown && validationErrors.ingredients && (
-                <span data-cy="ingredients-error" className="errorMessage">
-                  {validationErrors.ingredients}
-                </span>
-              )}
-            </p>
-
-            <p>En fazla 10 malzeme seçebilirsiniz. 5TL</p>
-            <p className="additionalMaterials">
-              {Object.keys(defaultPizza.ingredients).map((material, index) => (
-                <Material
-                  key={index}
-                  list={material}
-                  handleChange={handleChange}
+      <div className="orderPage">
+        <section>
+          <h3 data-cy="orderpage-h3">Position Absolute Acı Pizza</h3>
+          <p className="priceInfo">
+            <span>85.50 TL</span>
+            <span>4.9 </span>
+            <span>(200)</span>
+          </p>
+          <p className="pizzaExplanation">
+            Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı
+            pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli
+            diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun
+            ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle
+            yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan
+            kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta
+            denir.
+          </p>
+          <form onSubmit={handleSubmit}>
+            <div className="size ">
+              <p>Boyut Seç</p>
+              <label>
+                <input
+                  onChange={handleChange}
+                  type="radio"
+                  name="size"
+                  value="small"
+                  data-cy="small"
                 />
-              ))}
-            </p>
+                Küçük
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="size"
+                  onChange={handleChange}
+                  value="medium"
+                  defaultChecked
+                  data-cy="medium"
+                />
+                Orta
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="size"
+                  onChange={handleChange}
+                  value="large"
+                  data-cy="large"
+                />
+                Büyük
+              </label>
+            </div>
+            <div className="paste">
+              <p>
+                Hamur Seç
+                {isShown && validationErrors.paste && (
+                  <span data-cy="paste-error" className="errorMessage">
+                    {validationErrors.paste}
+                  </span>
+                )}
+              </p>
 
-            <p>Sipariş Notu</p>
+              <select
+                name="paste"
+                defaultValue={"default"}
+                onChange={handleChange}
+                data-cy="select-paste"
+              >
+                <option value="default" disabled>
+                  Lütfen hamur tipini seç
+                </option>
+                <option value="thin">İnce Hamur</option>
+                <option value="normal">Normal Hamur</option>
+                <option value="thick">Kalın Hamur</option>
+              </select>
+            </div>
+            <div className="materials">
+              <p>
+                Ek Malzemeler
+                {isShown && validationErrors.ingredients && (
+                  <span data-cy="ingredients-error" className="errorMessage">
+                    {validationErrors.ingredients}
+                  </span>
+                )}
+              </p>
 
-            <input
-              className="note"
-              name="orderNote"
-              onChange={handleChange}
-              placeholder="Siparişine eklemek istediğin bir not var mı ?"
-              data-cy="comment-input"
-            />
-          </div>
+              <p>En fazla 10 malzeme seçebilirsiniz. 5TL</p>
+              <p className="additionalMaterials">
+                {Object.keys(defaultPizza.ingredients).map(
+                  (material, index) => (
+                    <Material
+                      key={index}
+                      list={material}
+                      handleChange={handleChange}
+                    />
+                  )
+                )}
+              </p>
 
-          <div className="priceCalculation">
-            <div className="counter">
-              <button data-cy="decrease-piece" onClick={decreaseCounter}>
-                -
-              </button>
-              <p>{order.counter}</p>
-              <button data-cy="increase-piece" onClick={increaseCounter}>
-                +
+              <p>Sipariş Notu</p>
+
+              <input
+                className="note"
+                name="orderNote"
+                onChange={handleChange}
+                placeholder="Siparişine eklemek istediğin bir not var mı ?"
+                data-cy="comment-input"
+              />
+            </div>
+
+            <div className="priceCalculation">
+              <div className="counter">
+                <button data-cy="decrease-piece" onClick={decreaseCounter}>
+                  -
+                </button>
+                <p>{order.counter}</p>
+                <button data-cy="increase-piece" onClick={increaseCounter}>
+                  +
+                </button>
+              </div>
+              <div className="summary">
+                <p>Sipariş Toplamı</p>
+                <p>
+                  <span>Seçimler</span>
+                  <span>{order.addedMaterial() * 5}₺</span>
+                </p>
+                <p>
+                  <span>Toplam</span>
+                  <span data-cy="total-price">{total.toFixed(2)}₺</span>
+                </p>
+              </div>
+              <button
+                className="submit-button"
+                data-cy="submit-button"
+                type="submit"
+              >
+                {" "}
+                Sipariş Ver
               </button>
             </div>
-            <div className="summary">
-              <p>Sipariş Toplamı</p>
-              <p>
-                <span>Seçimler</span>
-                <span>{order.addedMaterial() * 5}₺</span>
-              </p>
-              <p>
-                <span>Toplam</span>
-                <span data-cy="total-price">{total.toFixed(2)}₺</span>
-              </p>
-            </div>
-            <button
-              className="submit-button"
-              data-cy="submit-button"
-              type="submit"
-            >
-              {" "}
-              Sipariş Ver
-            </button>
-          </div>
-        </form>
-      </section>
-    </div>
+          </form>
+        </section>
+      </div>
+    </>
   );
 };
 
