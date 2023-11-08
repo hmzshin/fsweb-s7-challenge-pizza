@@ -29,7 +29,7 @@ const HomePage = () => {
 
         <section></section>
       </section>
-      <section className="options">
+      <section className="navbar">
         <ul>
           <li>
             <img src={optionIcon1} />
@@ -57,60 +57,68 @@ const HomePage = () => {
           </li>
         </ul>
       </section>
-      <section>
-        <div>
-          <div>
+      <section className="content">
+        <div className="featured">
+          <div className="left-box">
             <h3>
               Özel <br /> Lezzetus
             </h3>
             <p>Position:Absolute Acı Burger</p>
             <button>SİPARİŞ VER</button>
           </div>
-          <div>
-            <h4>
-              Hackathlon
-              <br />
-              Burger Menü
-            </h4>
-            <button>SİPARİŞ VER</button>
-          </div>
-          <div>
-            <h4>
-              <span>Çoooook</span>hızlı <br />
-              npm gibi kurye
-            </h4>
-            <button>SİPARİŞ VER</button>
+          <div className="right-box">
+            <div className="top">
+              <h4>
+                Hackathlon
+                <br />
+                Burger Menü
+              </h4>
+              <button>SİPARİŞ VER</button>
+            </div>
+            <div className="bottom">
+              <h4>
+                <span>Çoooook</span> hızlı <br />
+                npm gibi kurye
+              </h4>
+              <button>SİPARİŞ VER</button>
+            </div>
           </div>
         </div>
-        <div>
-          <div>
+        <div className="menu">
+          <div className="top-box">
             <p>en çok paketlenen menüler</p>
-            <p>Acıktıran Kodlara Doyuran LEzzetler</p>
+            <p>Acıktıran Kodlara Doyuran Lezzetler</p>
             <nav>
               <ul>
                 <li>
+                  <img src={optionIcon1} />
                   <Link>Ramen</Link>
                 </li>
                 <li>
+                  <img src={optionIcon2} />
                   <Link>Pizza</Link>
                 </li>
                 <li>
+                  <img src={optionIcon3} />
                   <Link>Burger</Link>
                 </li>
                 <li>
+                  <img src={optionIcon4} />
                   <Link>French fries</Link>
                 </li>
                 <li>
+                  <img src={optionIcon5} />
                   <Link>Fast food</Link>
                 </li>
                 <li>
+                  <img src={optionIcon6} />
                   <Link>Sosft drinks</Link>
                 </li>
               </ul>
             </nav>
           </div>
-          <div>
-            <div>
+          <div className="bottom-box">
+            <div className="pizzzaCard">
               <img />
               <p>Terminal Pizza</p>
               <p>
@@ -119,7 +127,7 @@ const HomePage = () => {
                 <span>60₺</span>
               </p>
             </div>
-            <div>
+            <div className="pizzaCard">
               <img />
               <p>Position Absolute Acı Pizza</p>
               <p>
@@ -129,7 +137,7 @@ const HomePage = () => {
               </p>
             </div>
 
-            <div>
+            <div className="pizzzaCard">
               <img />
               <p></p>
               <p>

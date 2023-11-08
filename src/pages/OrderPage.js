@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import Header from "../components/Header";
 import { useHistory } from "react-router-dom";
+import Footer from "../components/Footer";
 
 // Initial data for a default pizza configuration
 const defaultPizza = {
@@ -311,13 +312,13 @@ const OrderPage = () => {
                 data-cy="submit-button"
                 type="submit"
               >
-                {" "}
                 Sipariş Ver
               </button>
             </div>
           </form>
         </section>
       </div>
+      {/* <Footer /> */}
     </>
   );
 };
