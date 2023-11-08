@@ -6,7 +6,8 @@ import * as Yup from "yup";
 import axios from "axios";
 import Header from "../components/Header";
 import { useHistory } from "react-router-dom";
-// initial data comes to display pizza options
+
+// Initial data for a default pizza configuration
 const positionAbolute = {
   name: "positionAbsolute",
   price: 85.5,
@@ -33,28 +34,29 @@ const positionAbolute = {
       .length;
   },
 };
+
+// Variables for size and thickness multipliers
 let sizeM = 1;
 let thicknessM = 1;
 
 const OrderPage = () => {
-  // state to track order details
+  // State to track order details
   const [order, setOrder] = useState(positionAbolute);
-  // state for tracking calculated price
+  // State for tracking calculated price
   const [total, setTotal] = useState(order.price);
-  // state to show error messages when click to submit button
+  // State to show error messages when clicking the submit button
   const [isShown, setIsShown] = useState(false);
-  // state to store data if there is error after validation or not
+  // State to store data if there is an error after validation or not
   const [isError, setIsError] = useState(true);
-  // state for validation errors, initially values are empty
+  // State for validation errors, initially empty
   const [validationErrors, setValidationErrors] = useState({});
 
-  //useHistory() to track browser history in react and to direct another page in react
   const history = useHistory();
 
-  // function to handle changes on input/checkbox/select
+  // Function to handle changes on input/checkbox/select
   const handleChange = (e) => {
     const { value, name, checked, type, id } = e.target;
-    //since the ingrediants are stored as an array inside an object first need to check if the changed input is blong to this array or not
+    // Check if the changed input belongs to the ingredients array
     if (id === "materialList") {
       order.ingredients[name] = checked;
       setOrder({ ...order });
@@ -66,12 +68,12 @@ const OrderPage = () => {
     }
   };
 
-  // function to increase the number of pizzas to order
+  // Function to increase the number of pizzas to order
   const increaseCounter = (e) => {
     e.preventDefault();
     setOrder({ ...order, counter: order["counter"] + 1 });
   };
-  // function to decrease the number of pizzas to order
+  // Function to decrease the number of pizzas to order
   const decreaseCounter = (e) => {
     e.preventDefault();
     if (order.counter > 1) {
@@ -79,6 +81,7 @@ const OrderPage = () => {
     }
   };
 
+  // Define the validation schema using Yup
   const validationSchema = Yup.object().shape({
     ingredients: Yup.object()
       .test("min4", "En az 4 tane malzeme seçiniz", (obje) => {
@@ -92,12 +95,14 @@ const OrderPage = () => {
     paste: Yup.string().required("Lütfen hamur tipini seçiniz"),
   });
 
+  // Handle the form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsShown(true);
     const summary = { ...order };
     summary.totalPrice = total.toFixed(2);
 
+    // If there are no validation errors, make a POST request and navigate to a "success" page
     if (!isError) {
       axios
         .post("https://reqres.in/api/users", summary)
@@ -111,6 +116,7 @@ const OrderPage = () => {
     }
   };
 
+  // Use useEffect to perform validation when the "order" state changes
   useEffect(() => {
     validationSchema
       .validate(order, { abortEarly: false })
@@ -129,6 +135,7 @@ const OrderPage = () => {
       });
   }, [order]);
 
+  // Use useEffect to recalculate the total price when order details change
   useEffect(() => {
     order.size === "large"
       ? (sizeM = 1.1)
