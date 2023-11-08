@@ -8,7 +8,7 @@ import Header from "../components/Header";
 import { useHistory } from "react-router-dom";
 
 // Initial data for a default pizza configuration
-const positionAbolute = {
+const defaultPizza = {
   name: "positionAbsolute",
   price: 85.5,
   counter: 1,
@@ -41,7 +41,7 @@ let thicknessM = 1;
 
 const OrderPage = () => {
   // State to track order details
-  const [order, setOrder] = useState(positionAbolute);
+  const [order, setOrder] = useState(defaultPizza);
   // State for tracking calculated price
   const [total, setTotal] = useState(order.price);
   // State to show error messages when clicking the submit button
@@ -111,7 +111,11 @@ const OrderPage = () => {
           console.log("post request is succesful", response.data);
         })
         .catch(function (error) {
-          console.error("post request is failed", error);
+          history.push("/");
+          alert(
+            "Siparişiniz alınamadı. Anasayfaya yönlendiriliyorsunuz.",
+            error
+          );
         });
     }
   };
@@ -249,15 +253,13 @@ const OrderPage = () => {
 
             <p>En fazla 10 malzeme seçebilirsiniz. 5TL</p>
             <p className="additionalMaterials">
-              {Object.keys(positionAbolute.ingredients).map(
-                (material, index) => (
-                  <Material
-                    key={index}
-                    list={material}
-                    handleChange={handleChange}
-                  />
-                )
-              )}
+              {Object.keys(defaultPizza.ingredients).map((material, index) => (
+                <Material
+                  key={index}
+                  list={material}
+                  handleChange={handleChange}
+                />
+              ))}
             </p>
 
             <p>Sipariş Notu</p>
