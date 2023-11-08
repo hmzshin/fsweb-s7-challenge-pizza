@@ -37,3 +37,9 @@
   font-size: 1rem;
   color: white;
 }
+
+@media (max-width: 600px) {
+  nav {
+    padding-left: 20px;
+  }
+}
