@@ -12,7 +12,7 @@ const defaultPizza = {
   name: "positionAbsolute",
   price: 85.5,
   counter: 1,
-  size: "medium",
+  size: "",
   paste: "",
   ingredients: {
     Pepperoni: false,
@@ -93,6 +93,7 @@ const OrderPage = () => {
         return len <= 10;
       }),
     paste: Yup.string().required("Lütfen hamur tipini seçiniz"),
+    size: Yup.string().required("Lütfen pizza boyutunu seçin"),
   });
 
   // Handle the form submission
@@ -186,7 +187,14 @@ const OrderPage = () => {
           </p>
           <form onSubmit={handleSubmit}>
             <div className="size ">
-              <p>Boyut Seç</p>
+              <p>
+                Boyut Seç
+                {isShown && validationErrors.size && (
+                  <span data-cy="paste-error" className="errorMessage">
+                    {validationErrors.size}
+                  </span>
+                )}
+              </p>
               <label>
                 <input
                   onChange={handleChange}
@@ -203,7 +211,6 @@ const OrderPage = () => {
                   name="size"
                   onChange={handleChange}
                   value="medium"
-                  defaultChecked
                   data-cy="medium"
                 />
                 Orta
@@ -261,6 +268,7 @@ const OrderPage = () => {
                       key={index}
                       list={material}
                       handleChange={handleChange}
+                      checked={defaultPizza.ingredients[material]}
                     />
                   )
                 )}
