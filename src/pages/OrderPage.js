@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import Header from "../components/Header";
 import { useHistory } from "react-router-dom";
-
+// initial data comes to display pizza options
 const positionAbolute = {
   name: "positionAbsolute",
   price: 85.5,
@@ -33,21 +33,28 @@ const positionAbolute = {
       .length;
   },
 };
-
-// console.log(positionAbolute.addedMaterial());
+let sizeM = 1;
+let thicknessM = 1;
 
 const OrderPage = () => {
+  // state to track order details
   const [order, setOrder] = useState(positionAbolute);
+  // state for tracking calculated price
   const [total, setTotal] = useState(order.price);
+  // state to show error messages when click to submit button
   const [isShown, setIsShown] = useState(false);
+  // state to store data if there is error after validation or not
   const [isError, setIsError] = useState(true);
-  const [validationErrors, setValidationErrors] = useState({
-    ingredients: "",
-    paste: "",
-  });
+  // state for validation errors, initially values are empty
+  const [validationErrors, setValidationErrors] = useState({});
+
+  //useHistory() to track browser history in react and to direct another page in react
   const history = useHistory();
+
+  // function to handle changes on input/checkbox/select
   const handleChange = (e) => {
     const { value, name, checked, type, id } = e.target;
+    //since the ingrediants are stored as an array inside an object first need to check if the changed input is blong to this array or not
     if (id === "materialList") {
       order.ingredients[name] = checked;
       setOrder({ ...order });
@@ -59,11 +66,12 @@ const OrderPage = () => {
     }
   };
 
+  // function to increase the number of pizzas to order
   const increaseCounter = (e) => {
     e.preventDefault();
     setOrder({ ...order, counter: order["counter"] + 1 });
   };
-
+  // function to decrease the number of pizzas to order
   const decreaseCounter = (e) => {
     e.preventDefault();
     if (order.counter > 1) {
@@ -73,51 +81,16 @@ const OrderPage = () => {
 
   const validationSchema = Yup.object().shape({
     ingredients: Yup.object()
-      .test("atLeastOneMaterial", "En az 4 tane malzeme seçiniz", (value) => {
-        const selectedMaterials = Object.values(value).filter(
-          (isChecked) => isChecked
-        );
-        return selectedMaterials.length >= 4;
+      .test("min4", "En az 4 tane malzeme seçiniz", (obje) => {
+        const len = Object.values(obje).filter((isTrue) => isTrue).length;
+        return len >= 4;
       })
-      .test(
-        "atMostTenMaterials",
-        "En fazla 10 tane malzeme seçebilirsiniz",
-        (value) => {
-          const selectedMaterials = Object.values(value).filter(
-            (isChecked) => isChecked
-          );
-          return selectedMaterials.length <= 10;
-        }
-      ),
+      .test("max10", "En fazla 10 tane malzeme seçebilirsiniz", (obje) => {
+        const len = Object.values(obje).filter((isTrue) => isTrue).length;
+        return len <= 10;
+      }),
     paste: Yup.string().required("Lütfen hamur tipini seçiniz"),
   });
-
-  const validationFunction = async () => {
-    try {
-      await validationSchema.validate(order, { abortEarly: false });
-      setIsError(false);
-      setValidationErrors({
-        ingredients: "",
-        paste: "",
-      });
-    } catch (errors) {
-      setIsError(true);
-      const object = {};
-      // errrors.inner returns an array and we can reach error messages and key values
-      errors.inner.forEach((error) => {
-        object[error.path] = error.message;
-      });
-
-      if (!Object.keys(object).includes("paste")) {
-        object.paste = "";
-      }
-      if (!Object.keys(object).includes("ingredients")) {
-        object.ingredients = "";
-      }
-
-      setValidationErrors(object);
-    }
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -138,8 +111,24 @@ const OrderPage = () => {
     }
   };
 
-  let sizeM = 1;
-  let thicknessM = 1;
+  useEffect(() => {
+    validationSchema
+      .validate(order, { abortEarly: false })
+      .then((response) => {
+        setIsError(false);
+        console.log("hata yok ", response);
+        setValidationErrors({});
+      })
+      .catch((error) => {
+        setIsError(true);
+        const object = {};
+        error.inner.forEach((element) => {
+          object[element.path] = element.message;
+        });
+        setValidationErrors(object);
+      });
+  }, [order]);
+
   useEffect(() => {
     order.size === "large"
       ? (sizeM = 1.1)
@@ -158,10 +147,6 @@ const OrderPage = () => {
     );
     console.log("order", order);
     console.log("number of added material ", order.addedMaterial());
-  }, [order]);
-
-  useEffect(() => {
-    validationFunction();
   }, [order]);
 
   useEffect(() => {
@@ -224,7 +209,7 @@ const OrderPage = () => {
           <div className="paste">
             <p>
               Hamur Seç
-              {isShown && (
+              {isShown && validationErrors.paste && (
                 <span data-cy="paste-error" className="errorMessage">
                   {validationErrors.paste}
                 </span>
@@ -248,7 +233,7 @@ const OrderPage = () => {
           <div className="materials">
             <p>
               Ek Malzemeler
-              {isShown && (
+              {isShown && validationErrors.ingredients && (
                 <span data-cy="ingredients-error" className="errorMessage">
                   {validationErrors.ingredients}
                 </span>
