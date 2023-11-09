@@ -7,6 +7,7 @@ import axios from "axios";
 import Header from "../components/Header";
 import { useHistory } from "react-router-dom";
 import Footer from "../components/Footer";
+import banner from "../assets/adv-aseets/adv-form-banner.png";
 
 // Initial data for a default pizza configuration
 const defaultPizza = {
@@ -170,22 +171,27 @@ const OrderPage = () => {
     <>
       <Header />
       <div className="orderPage">
+        <div id="hero">
+          <section className="top-section">
+            <img src={banner} />
+            <h3 data-cy="orderpage-h3">Position Absolute Acı Pizza</h3>
+            <p className="priceInfo">
+              <span>85.50 TL</span>
+              <span>4.9 </span>
+              <span>(200)</span>
+            </p>
+            <p className="pizzaExplanation">
+              Frontent Dev olarak hala position:absolute kullanıyorsan bu çok
+              acı pizza tam sana göre. Pizza, domates, peynir ve genellikle
+              çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak
+              odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle
+              yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan
+              İtalyan kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen
+              pizzetta denir.
+            </p>
+          </section>
+        </div>
         <section>
-          <h3 data-cy="orderpage-h3">Position Absolute Acı Pizza</h3>
-          <p className="priceInfo">
-            <span>85.50 TL</span>
-            <span>4.9 </span>
-            <span>(200)</span>
-          </p>
-          <p className="pizzaExplanation">
-            Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı
-            pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli
-            diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun
-            ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle
-            yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan
-            kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta
-            denir.
-          </p>
           <form onSubmit={handleSubmit}>
             <div className="size ">
               <p>
@@ -203,6 +209,7 @@ const OrderPage = () => {
                   name="size"
                   value="small"
                   data-cy="small"
+                  className="small"
                 />
                 Küçük
               </label>

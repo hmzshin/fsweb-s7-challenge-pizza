@@ -3,13 +3,44 @@ font-family: 'Bebas Neue', sans-serif;
 font-family: 'Merienda', cursive;
 font-family: 'Roboto', sans-serif; */
 /* Sarı #FDC913, Açık Gri: #5F5F5F, Koyu Gri #292929, Kırmızı #CE2829, Bej: #FAF7F2 */
+input {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: box-shadow 0.3s;
+  border: 0;
+  cursor: pointer;
+  background-color: #fdc913;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-transition: box-shadow 0.3s;
+  -moz-transition: box-shadow 0.3s;
+  -ms-transition: box-shadow 0.3s;
+  -o-transition: box-shadow 0.3s;
+}
+
+input:checked {
+  /* box-shadow: inset 0 0 0 20px #fdc913; */
+  background-image: url("../assets/adv-aseets/check-solid.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* ************************************************** */
 .orderPage {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: "Barlow", sans-serif;
 }
-
+.orderPage #hero {
+  background-color: #faf7f2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .orderPage section {
   display: flex;
   flex-direction: column;
@@ -17,36 +48,39 @@ font-family: 'Roboto', sans-serif; */
   justify-content: center;
   gap: 20px;
   max-width: 600px;
-  margin-top: 30px;
+}
+.orderPage .top-section img {
+  width: 100%;
+  margin-bottom: 50px;
 }
 
-.orderPage section h3 {
+.orderPage .top-section h3 {
   font-family: "Barlow", sans-serif;
   font-size: 1.5rem;
   align-self: flex-start;
   margin-bottom: 30px;
 }
-.orderPage section p {
+.orderPage .top-section p {
   width: 100%;
 }
-.orderPage section .priceInfo {
+.orderPage .top-section .priceInfo {
   height: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
 }
-.orderPage section .priceInfo span {
+.orderPage .top-section .priceInfo span {
   font-family: "Barlow", sans-serif;
 }
-.orderPage section .priceInfo span:nth-child(1) {
+.orderPage .top-section .priceInfo span:nth-child(1) {
   margin-right: 50%;
   font-family: "Barlow", sans-serif;
   font-weight: bold;
   font-size: 1.5rem;
 }
 
-.orderPage section .pizzaExplanation {
+.orderPage .top-section .pizzaExplanation {
   font-size: 1.03rem;
   line-height: 1.8rem;
   margin-bottom: 30px;
@@ -56,7 +90,7 @@ font-family: 'Roboto', sans-serif; */
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  margin-bottom: 30px;
+  padding: 30px 0px;
 }
 
 .orderPage section form .size {
@@ -67,6 +101,23 @@ font-family: 'Roboto', sans-serif; */
   gap: 10px;
   height: 50%;
   width: 50%;
+}
+.orderPage section form .size input {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  padding: 10px;
+  font-size: 2rem;
+}
+.orderPage section form .size .small::before {
+  content: "S";
+}
+.orderPage section form .size input:nth-child(2)::before {
+  content: "M";
 }
 .orderPage section form p {
   height: 50px;
@@ -121,7 +172,7 @@ font-family: 'Roboto', sans-serif; */
   font-size: 1rem;
 }
 .orderPage section form .materials .additionalMaterials label {
-  width: 150px;
+  width: 180px;
   height: 20px;
   font-size: 1rem;
 }
@@ -140,6 +191,7 @@ font-family: 'Roboto', sans-serif; */
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+  background-color: #faf7f2;
 }
 input::placeholder {
   padding-left: 20px;
@@ -170,6 +222,7 @@ input::placeholder {
 .orderPage section form .priceCalculation .counter button {
   width: 50px;
   height: 50px;
+  background: #faf7f2;
 }
 .orderPage section form .priceCalculation .counter button:nth-child(1) {
   border-top-left-radius: 7px;
@@ -184,7 +237,7 @@ input::placeholder {
   height: 50px;
   padding: 10px;
   text-align: center;
-  border: 1px solid #d9d9d9;
+  background: #faf7f2;
 }
 
 .orderPage section form .priceCalculation .summary {
@@ -196,11 +249,13 @@ input::placeholder {
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
   padding: 20px 30px 20px 40px;
+  background-color: #faf7f2;
 }
 .orderPage section form .priceCalculation .summary p {
   font-size: 1.3rem;
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 .orderPage section form .priceCalculation .summary p:nth-child(1) {
   color: #292929;
@@ -228,7 +283,10 @@ input::placeholder {
 }
 
 @media (max-width: 600px) {
-  .orderPage {
+  .orderPage .top-section {
+    padding: 0px 20px;
+  }
+  .orderPage form {
     padding: 0px 20px;
   }
   .orderPage section form .paste select {
