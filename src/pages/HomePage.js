@@ -9,6 +9,9 @@ import optionIcon3 from "../assets/adv-aseets/icons/3.svg";
 import optionIcon4 from "../assets/adv-aseets/icons/4.svg";
 import optionIcon5 from "../assets/adv-aseets/icons/5.svg";
 import optionIcon6 from "../assets/adv-aseets/icons/6.svg";
+import menufood1 from "../assets/adv-aseets/food-1.png";
+import menufood2 from "../assets/adv-aseets/food-2.png";
+import menufood3 from "../assets/adv-aseets/food-3.png";
 
 const HomePage = () => {
   return (
@@ -118,8 +121,8 @@ const HomePage = () => {
             </nav>
           </div>
           <div className="bottom-box">
-            <div className="pizzzaCard">
-              <img />
+            <div className="pizzaCard">
+              <img src={menufood1} />
               <p>Terminal Pizza</p>
               <p>
                 <span>4.9</span>
@@ -128,7 +131,7 @@ const HomePage = () => {
               </p>
             </div>
             <div className="pizzaCard">
-              <img />
+              <img src={menufood2} />
               <p>Position Absolute Acı Pizza</p>
               <p>
                 <span>4.9</span>
@@ -137,8 +140,8 @@ const HomePage = () => {
               </p>
             </div>
 
-            <div className="pizzzaCard">
-              <img />
+            <div className="pizzaCard">
+              <img src={menufood3} />
               <p></p>
               <p>
                 <span>4.9</span>
