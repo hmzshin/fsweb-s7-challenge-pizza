@@ -318,7 +318,7 @@ const OrderPage = () => {
           </form>
         </section>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

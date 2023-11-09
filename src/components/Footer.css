@@ -1,0 +1,73 @@
+footer {
+  min-width: 98vw;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 50px 0px;
+}
+footer div {
+  display: flex;
+}
+footer section {
+  display: flex;
+}
+
+footer .contact-info {
+  width: 70%;
+  justify-content: space-between;
+}
+footer .contact-info .left-box {
+  width: 50%;
+  height: 250px;
+}
+footer .contact-info .left-box section {
+  flex-direction: column;
+  gap: 15px;
+  width: 50%;
+  height: 250px;
+}
+footer .contact-info .left-box .address {
+  flex-direction: column;
+  width: 50%;
+  height: 250px;
+}
+footer .contact-info .left-box .address h2 {
+  font-size: 2rem;
+}
+footer .contact-info .left-box .address p {
+  display: flex;
+  gap: 10px;
+  font-size: 1rem;
+  align-items: end;
+}
+footer .contact-info .left-box .address p img {
+  height: 100%;
+}
+
+footer .contact-info .left-box .hot-menu h4 {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+}
+footer .contact-info .left-box .hot-menu p {
+  font-size: 1rem;
+}
+
+footer .contact-info .instagram {
+  flex-direction: column;
+  gap: 20px;
+  width: 25%;
+  height: 250px;
+}
+footer .contact-info .instagram .fotos {
+  width: 100%;
+  height: 200px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+footer .contact-info .instagram img {
+  height: 100px;
+}
