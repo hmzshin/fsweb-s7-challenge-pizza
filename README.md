@@ -43,7 +43,7 @@ Proje iki zorluk aşamalı,
 
 1.  **MVP**: ilk önce asgari yeterli ürün (MVP-Minimum Viable Product) aşamasına getirmeyi hedeflemelisin.
 2.  **ADV**: İleri düzey görevlere eadece ama sadece, tasarımdaki MVP kilometre taşına geldikten sonra başlamalısın. Buradaki gelişmiş görsel ve teknik problemleri çözmeyi MVP sonrasında, aşağıda belirtilen sırada çözerek ilerlemelisin.
-3.  Projenin iki aşamasının da gerekli görselleri proje klasöründe var. Ayrıca [Figma](https://www.figma.com/file/q0xPW5uCel3rdzFgpjR9lt/S7-Challange-Revize) formatındaki tasarıma bu adresten erişebilirsiniz. 
+3.  Projenin iki aşamasının da gerekli görselleri proje klasöründe var. Ayrıca [Figma](https://www.figma.com/file/q0xPW5uCel3rdzFgpjR9lt/S7-Challange-Revize) formatındaki tasarıma bu adresten erişebilirsiniz.
 
 ## Zorluk 1: MVP Tasarım Öğeleri
 
@@ -105,7 +105,7 @@ Not - Form'un payloadu, veri **örnek olarak** şu şekilde olabilir. **Kendiniz
 }
 ```
 
-veya 
+veya
 
 ```
 {
@@ -182,16 +182,16 @@ MVP'yi bitirdikten sonra çalışmanı daha da ileri götürebilirsin. Buradaki 
 | CSS flex becerisi ortalama ve hizalamalar doğru mu?                                       |          |
 | HTML yapısı anlamlı mı? Semantik tagler kullanılmış mı?                                   |          |
 | Projedeki MVP seviye tasarıma benzerlik (1-5)                                             |          |
-| ADV seviye Sipariş Onay sayfası uygulanmış mı?                                            | ADV    |
-| ADV seviye Sipariş Formu uygulanmış mı?                                                   | ADV    |
-| ADV seviye Anasayfa sayfası uygulanmış mı?                                                | ADV    |
-| ADV Seviye uyarlama kabiliyeti (1-5)                                                      | ADV    |
+| ADV seviye Sipariş Onay sayfası uygulanmış mı?                                            | ADV      |
+| ADV seviye Sipariş Formu uygulanmış mı?                                                   | ADV      |
+| ADV seviye Anasayfa sayfası uygulanmış mı?                                                | ADV      |
+| ADV Seviye uyarlama kabiliyeti (1-5)                                                      | ADV      |
 |                                                                                           |          |
 | React JS                                                                                  |          |
 | İçerik componentlere bölünmüş mü?                                                         |          |
 | Prop/export/import gibi React JS özellikleri kullanılmış mı?                              |          |
 | Kodda Türkçe karakter olmamasına dikkat edilmiş mi?                                       |          |
-| Temel paketler dışında ek bir paket kullanılmış mı? (Axios, Tailwind)                     | ADV    |
+| Temel paketler dışında ek bir paket kullanılmış mı? (Axios, Tailwind)                     | ADV      |
 | Genel React JS anlayışı (1-5)                                                             |          |
 |                                                                                           |          |
 | Routing                                                                                   |          |
@@ -218,12 +218,12 @@ MVP'yi bitirdikten sonra çalışmanı daha da ileri götürebilirsin. Buradaki 
 | Veriler state'te tutuluyor mu?                                                            |          |
 | Tüm form değerleri state'e ekleniyor mu?                                                  |          |
 | Tekrar eden bileşenler için map kullanmış mı?                                             |          |
-| Kullandığı verileri, axios ve mock bir API'ye atıp, response'u kullanıyor mu?             | ADV    |
+| Kullandığı verileri, axios ve mock bir API'ye atıp, response'u kullanıyor mu?             | ADV      |
 |                                                                                           |          |
 | Cypress Testleri                                                                          |          |
 | Kaç test yazılmış? (min 3)                                                                |          |
 | Validation kuralları test ediliyor mu?                                                    |          |
 | Her alan test ediliyor mu?                                                                |          |
-| Anasayfa'dan başlayıp, başarılı sipariş gönderimine giden bir test var mı?                | ADV    |
+| Anasayfa'dan başlayıp, başarılı sipariş gönderimine giden bir test var mı?                | ADV      |
 |                                                                                           |          |
 | Soru-Cevap Sorular                                                                        |          |
