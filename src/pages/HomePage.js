@@ -22,6 +22,7 @@ const HomePage = () => {
           {/* <img src={logo} /> */}
         </header>
         <section>
+          <p>fırsatı kaçırma</p>
           <p>
             KOD ACIKTIRIR <br /> PİZZA, DOYURUR
           </p>
@@ -127,7 +128,7 @@ const HomePage = () => {
               <p>
                 <span>4.9</span>
                 <span>(200)</span>
-                <span>60₺</span>
+                <span>60 ₺</span>
               </p>
             </div>
             <div className="pizzaCard">
@@ -136,17 +137,17 @@ const HomePage = () => {
               <p>
                 <span>4.9</span>
                 <span>(928)</span>
-                <span>85₺</span>
+                <span>85 ₺</span>
               </p>
             </div>
 
             <div className="pizzaCard">
               <img src={menufood3} />
-              <p></p>
+              <p>useEffect Tavuklu Burger</p>
               <p>
                 <span>4.9</span>
                 <span>(462)</span>
-                <span>75₺</span>
+                <span>75 ₺</span>
               </p>
             </div>
           </div>

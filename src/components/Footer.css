@@ -1,5 +1,4 @@
 footer {
-  min-width: 98vw;
   height: 40vh;
   display: flex;
   flex-direction: column;
@@ -71,7 +70,7 @@ footer .contact-info .instagram .fotos {
 }
 
 footer .contact-info .instagram img {
-  height: 100px;
+  height: 50%;
 }
 
 footer .copyright {

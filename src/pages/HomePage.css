@@ -2,10 +2,13 @@
 font-family: 'Bebas Neue', sans-serif;
 font-family: 'Merienda', cursive;
 font-family: 'Roboto', sans-serif; */
+/* font-family: 'Satisfy', cursive; */
 /* Sarı #FDC913, Açık Gri: #5F5F5F, Koyu Gri #292929, Kırmızı #CE2829, Bej: #FAF7F2 */
 
 @import url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 
 /* hero section */
 .homePage .hero {
@@ -14,7 +17,6 @@ font-family: 'Roboto', sans-serif; */
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-  min-width: 98vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,7 +26,7 @@ font-family: 'Roboto', sans-serif; */
   align-items: center;
   justify-content: center;
   max-width: 600px;
-  height: 20%;
+  height: 15%;
 }
 
 .homePage .hero header h1 {
@@ -40,11 +42,15 @@ font-family: 'Roboto', sans-serif; */
   align-items: center;
   justify-content: space-between;
   padding-top: 20px;
-  height: 30%;
-  max-width: 600px;
+  max-width: 700px;
 }
 
-.homePage .hero section p {
+.homePage .hero section p:nth-child(1) {
+  font-family: "Satisfy";
+  color: #fdc913;
+  font-size: 1.5rem;
+}
+.homePage .hero section p:nth-child(2) {
   width: 100%;
   font-size: 4rem;
   color: white;
@@ -65,6 +71,7 @@ font-family: 'Roboto', sans-serif; */
   -moz-border-radius: 100px;
   -ms-border-radius: 100px;
   -o-border-radius: 100px;
+  margin-top: 20px;
 }
 
 .homePage .hero section button a {
@@ -74,19 +81,20 @@ font-family: 'Roboto', sans-serif; */
 /* navbar section */
 
 .homePage .navbar {
-  width: 100%;
-  min-height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 30px 0px;
 }
 .homePage .navbar ul {
+  font-family: "Barlow", sans-serif;
+  font-weight: bold;
   list-style-type: none;
   width: 70%;
   height: 50%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   gap: 10px;
 }
@@ -105,6 +113,7 @@ font-family: 'Roboto', sans-serif; */
   font-size: 1rem;
 }
 
+/* content section */
 .homePage .content {
   display: flex;
   flex-direction: column;
@@ -116,7 +125,6 @@ font-family: 'Roboto', sans-serif; */
 
 .homePage .content .featured {
   width: 70%;
-  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -124,6 +132,7 @@ font-family: 'Roboto', sans-serif; */
 }
 
 .homePage .content .featured button {
+  font-family: "Barlow", sans-serif;
   width: 200px;
   height: 50px;
   background-color: white;
@@ -143,7 +152,7 @@ font-family: 'Roboto', sans-serif; */
   background-size: cover;
   background-repeat: no-repeat;
   width: 50%;
-  height: 100%;
+  height: 50vh;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -156,16 +165,18 @@ font-family: 'Roboto', sans-serif; */
   gap: 20px;
 }
 .homePage .content .featured .left-box h3 {
+  font-family: "Quattrocento", serif;
   font-size: 4rem;
   color: white;
 }
 .homePage .content .featured .left-box p {
   font-size: 1.2rem;
   color: white;
+  font-family: "Barlow", sans-serif;
 }
 .homePage .content .featured .right-box {
   width: 50%;
-  height: 100%;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -184,6 +195,7 @@ font-family: 'Roboto', sans-serif; */
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+  font-family: "Barlow", sans-serif;
 }
 .homePage .content .featured .right-box .top h4 {
   color: white;
@@ -209,36 +221,42 @@ font-family: 'Roboto', sans-serif; */
   flex-direction: column;
   align-items: start;
   gap: 20px;
+  font-family: "Barlow", sans-serif;
 }
 
 .homePage .content .featured .right-box .bottom span {
   color: #ce2829;
 }
-
+/* menu section */
 .homePage .content .menu {
   width: 70%;
-  height: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 50px;
+  font-family: "Barlow", sans-serif;
+  padding-bottom: 50px;
 }
 .homePage .content .menu .top-box {
   width: 100%;
-  height: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  gap: 30px;
 }
 .homePage .content .menu .top-box p {
   height: 56px;
 }
 .homePage .content .menu .top-box p:nth-child(1) {
+  font-family: "Satisfy";
+  color: #ce2829;
   font-size: 1.5rem;
 }
 .homePage .content .menu .top-box p:nth-child(2) {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #292929;
 }
 .homePage .content .menu .top-box nav {
   width: 100%;
@@ -246,15 +264,14 @@ font-family: 'Roboto', sans-serif; */
 .homePage .content .menu .top-box nav ul {
   list-style-type: none;
   width: 100%;
-  height: 80px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 .homePage .content .menu .top-box nav ul li {
-  height: 100%;
+  height: 80px;
   width: 200px;
   display: flex;
   justify-content: center;
@@ -266,6 +283,7 @@ font-family: 'Roboto', sans-serif; */
   -ms-border-radius: 40px;
   -o-border-radius: 40px;
   background-color: #ffffff;
+  font-weight: bold;
 }
 .homePage .content .menu .top-box nav ul li:hover {
   background-color: #292929;
@@ -284,7 +302,6 @@ font-family: 'Roboto', sans-serif; */
 
 .homePage .content .menu .bottom-box {
   width: 100%;
-  height: 450px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -292,7 +309,6 @@ font-family: 'Roboto', sans-serif; */
 
 .homePage .content .menu .bottom-box .pizzaCard {
   width: 30%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -316,7 +332,10 @@ font-family: 'Roboto', sans-serif; */
   width: 80%;
 }
 .homePage .content .menu .bottom-box .pizzaCard p:nth-child(2) {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  align-self: flex-start;
+  padding-left: 30px;
 }
 .homePage .content .menu .bottom-box .pizzaCard p:nth-child(3) {
   width: 100%;
@@ -335,6 +354,80 @@ font-family: 'Roboto', sans-serif; */
   span:nth-child(3) {
   font-weight: bold;
   font-size: 1.3rem;
+}
+@media (max-width: 1500px) {
+  .homePage .content .featured {
+    width: 90%;
+  }
+  .homePage .content .menu .bottom-box .pizzaCard p:nth-child(2) {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .homePage .content .featured {
+    width: 90%;
+  }
+  .homePage .content .menu .bottom-box .pizzaCard p:nth-child(2) {
+    font-size: 1rem;
+  }
+  .homePage .content .menu .bottom-box .pizzaCard {
+    font-size: 1rem;
+    height: 300px;
+  }
+}
+
+@media (max-width: 800px) {
+  .homePage .content .featured {
+    flex-direction: column;
+    width: 80%;
+  }
+  .homePage .content {
+    padding-top: 40px;
+  }
+  .homePage .content .featured .left-box {
+    width: 100%;
+  }
+  .homePage .content .featured .right-box {
+    width: 100%;
+  }
+  .homePage .content .featured button {
+    width: 150px;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    font-size: 1rem;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+  }
+  .homePage .content .menu {
+    justify-content: center;
+  }
+  .homePage .content .menu .top-box p:nth-child(2) {
+    font-size: 1.5rem;
+  }
+
+  .homePage .content .menu .top-box nav ul li {
+    height: 50px;
+    width: 150px;
+    justify-content: space-around;
+  }
+
+  .homePage .content .menu .bottom-box {
+    flex-direction: column;
+  }
+  .homePage .content .menu .bottom-box {
+    gap: 50px;
+  }
+  .homePage .content .menu .bottom-box .pizzaCard {
+    width: 100%;
+    height: auto;
+  }
+  .homePage .content .menu .bottom-box .pizzaCard p:nth-child(2) {
+    font-size: 1.5rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -356,5 +449,7 @@ font-family: 'Roboto', sans-serif; */
     -moz-border-radius: 50px;
     -ms-border-radius: 50px;
     -o-border-radius: 50px;
+  }
+  .homePage .content .menu .bottom-box .pizzaCard {
   }
 }
