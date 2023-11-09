@@ -299,7 +299,7 @@ const OrderPage = () => {
                 <p>Sipariş Toplamı</p>
                 <p>
                   <span>Seçimler</span>
-                  <span>{order.addedMaterial() * 5}₺</span>
+                  <span>{order.addedMaterial() * 5 * order.counter}₺</span>
                 </p>
                 <p>
                   <span>Toplam</span>
