@@ -1,5 +1,4 @@
 footer {
-  height: 40vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -21,20 +20,13 @@ footer .contact-info {
   justify-content: space-between;
   border-bottom: 1px solid white;
 }
-footer .contact-info .left-box {
-  width: 50%;
-  height: 250px;
-}
+
 footer .contact-info .left-box section {
   flex-direction: column;
   gap: 15px;
-  width: 50%;
-  height: 250px;
+  width: 300px;
 }
-footer .contact-info .left-box .address {
-  flex-direction: column;
-  width: 50%;
-}
+
 footer .contact-info .left-box .address h2 {
   font-size: 2rem;
 }
@@ -59,23 +51,22 @@ footer .contact-info .left-box .hot-menu p {
 footer .contact-info .instagram {
   flex-direction: column;
   gap: 20px;
-  width: 25%;
-  height: 250px;
+  width: 20vw;
+  padding-left: 2vw;
 }
 footer .contact-info .instagram .fotos {
   width: 100%;
-  height: 200px;
   flex-wrap: wrap;
   gap: 10px;
 }
 
 footer .contact-info .instagram img {
-  height: 50%;
+  height: 5vw;
 }
 
 footer .copyright {
   width: 70%;
-  height: 100px;
+  height: 50px;
   justify-content: space-between;
   align-items: center;
 }
@@ -83,4 +74,35 @@ footer .copyright img {
   background-color: white;
   width: 20px;
   height: 20px;
+}
+
+@media (max-width: 1200px) {
+  footer .contact-info {
+    flex-direction: column;
+    gap: 20px;
+  }
+  footer .contact-info .left-box {
+    justify-content: space-around;
+  }
+  footer .contact-info .left-box section {
+    width: 50%;
+  }
+  footer .contact-info .instagram {
+    width: 100%;
+  }
+}
+
+@media (max-width: 800px) {
+  footer .contact-info .left-box {
+    flex-direction: column;
+    gap: 20px;
+
+    width: 100%;
+  }
+  footer .contact-info .left-box section {
+    width: 100%;
+  }
+  footer .contact-info .instagram {
+    width: 100%;
+  }
 }
