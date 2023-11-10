@@ -1,4 +1,5 @@
 import React from "react";
+import "./Material.css";
 const Material = ({ list, handleChange, checked }) => {
   return (
     <label>

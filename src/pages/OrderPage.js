@@ -202,37 +202,42 @@ const OrderPage = () => {
                   </span>
                 )}
               </p>
-              <label>
-                <input
-                  onChange={handleChange}
-                  type="radio"
-                  name="size"
-                  value="small"
-                  data-cy="small"
-                  className="small"
-                />
-                Küçük
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="size"
-                  onChange={handleChange}
-                  value="medium"
-                  data-cy="medium"
-                />
-                Orta
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="size"
-                  onChange={handleChange}
-                  value="large"
-                  data-cy="large"
-                />
-                Büyük
-              </label>
+              <div>
+                <label>
+                  <input
+                    onChange={handleChange}
+                    type="radio"
+                    name="size"
+                    value="small"
+                    data-cy="small"
+                    className="small"
+                  />
+                  Küçük
+                </label>
+
+                <label>
+                  <input
+                    type="radio"
+                    name="size"
+                    onChange={handleChange}
+                    value="medium"
+                    data-cy="medium"
+                    className="medium"
+                  />
+                  Orta
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="size"
+                    onChange={handleChange}
+                    value="large"
+                    data-cy="large"
+                    className="large"
+                  />
+                  Büyük
+                </label>
+              </div>
             </div>
             <div className="paste">
               <p>
