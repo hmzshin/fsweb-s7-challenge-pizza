@@ -190,7 +190,7 @@ const OrderPage = () => {
               <p>
                 Boyut Seç
                 {isShown && validationErrors.size && (
-                  <span data-cy="paste-error" className="errorMessage">
+                  <span data-cy="size-error" className="errorMessage">
                     {validationErrors.size}
                   </span>
                 )}
