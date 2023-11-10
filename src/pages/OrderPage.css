@@ -3,13 +3,21 @@ font-family: 'Bebas Neue', sans-serif;
 font-family: 'Merienda', cursive;
 font-family: 'Roboto', sans-serif; */
 /* Sarı #FDC913, Açık Gri: #5F5F5F, Koyu Gri #292929, Kırmızı #CE2829, Bej: #FAF7F2 */
+
+/* ************************************************** */
 .orderPage {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: "Barlow", sans-serif;
 }
-
+.orderPage #hero {
+  background-color: #faf7f2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .orderPage section {
   display: flex;
   flex-direction: column;
@@ -17,36 +25,39 @@ font-family: 'Roboto', sans-serif; */
   justify-content: center;
   gap: 20px;
   max-width: 600px;
-  margin-top: 30px;
+}
+.orderPage .top-section img {
+  width: 100%;
+  margin-bottom: 50px;
 }
 
-.orderPage section h3 {
+.orderPage .top-section h3 {
   font-family: "Barlow", sans-serif;
   font-size: 1.5rem;
   align-self: flex-start;
   margin-bottom: 30px;
 }
-.orderPage section p {
+.orderPage .top-section p {
   width: 100%;
 }
-.orderPage section .priceInfo {
+.orderPage .top-section .priceInfo {
   height: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
 }
-.orderPage section .priceInfo span {
+.orderPage .top-section .priceInfo span {
   font-family: "Barlow", sans-serif;
 }
-.orderPage section .priceInfo span:nth-child(1) {
+.orderPage .top-section .priceInfo span:nth-child(1) {
   margin-right: 50%;
   font-family: "Barlow", sans-serif;
   font-weight: bold;
   font-size: 1.5rem;
 }
 
-.orderPage section .pizzaExplanation {
+.orderPage .top-section .pizzaExplanation {
   font-size: 1.03rem;
   line-height: 1.8rem;
   margin-bottom: 30px;
@@ -56,7 +67,7 @@ font-family: 'Roboto', sans-serif; */
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  margin-bottom: 30px;
+  padding: 30px 0px;
 }
 
 .orderPage section form .size {
@@ -68,16 +79,46 @@ font-family: 'Roboto', sans-serif; */
   height: 50%;
   width: 50%;
 }
+.orderPage section form .size .label-container {
+  display: flex;
+  gap: 10px;
+}
+.orderPage section form .size label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+input[type="radio"] {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  background-color: #fdc913;
+  appearance: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+input[type="radio"]:checked {
+  background-image: url("../assets/adv-aseets/check-solid.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+}
+
 .orderPage section form p {
   height: 50px;
   font-size: 1.3rem;
   font-weight: bold;
 }
-.orderPage section form input {
-  margin-right: 10px;
-}
 
 .orderPage section form .paste {
+  display: flex;
+  flex-direction: column;
   height: 50%;
   width: 50%;
 }
@@ -85,13 +126,21 @@ font-family: 'Roboto', sans-serif; */
   height: 50px;
 }
 .orderPage section form .paste select {
-  width: 200px;
-  height: 30px;
   font-size: 1rem;
-  font-weight: bold;
+  margin-right: 0px;
+  border: 2px solid #d9d9d9;
+  border-radius: 5px;
+  width: 100%;
+  height: 50px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  background-color: #faf7f2;
+  font-family: "Barlow";
+  padding-left: 10px;
 }
 .orderPage section form .materials {
-  height: 550px;
   width: 100%;
   margin-top: 50px;
   padding-bottom: 50px;
@@ -111,19 +160,22 @@ font-family: 'Roboto', sans-serif; */
 }
 
 .orderPage section form .materials .additionalMaterials {
-  height: 50%;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 20px;
+  gap: 10px;
   margin: 10px 0px 20px 0px;
   font-size: 1rem;
+  height: auto;
 }
 .orderPage section form .materials .additionalMaterials label {
-  width: 150px;
-  height: 20px;
+  width: 180px;
   font-size: 1rem;
+  padding: 5px 0px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .orderPage section form .materials p:nth-child(4) {
@@ -140,6 +192,7 @@ font-family: 'Roboto', sans-serif; */
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+  background-color: #faf7f2;
 }
 input::placeholder {
   padding-left: 20px;
@@ -170,6 +223,7 @@ input::placeholder {
 .orderPage section form .priceCalculation .counter button {
   width: 50px;
   height: 50px;
+  background: #faf7f2;
 }
 .orderPage section form .priceCalculation .counter button:nth-child(1) {
   border-top-left-radius: 7px;
@@ -184,7 +238,7 @@ input::placeholder {
   height: 50px;
   padding: 10px;
   text-align: center;
-  border: 1px solid #d9d9d9;
+  background: #faf7f2;
 }
 
 .orderPage section form .priceCalculation .summary {
@@ -196,11 +250,13 @@ input::placeholder {
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
   padding: 20px 30px 20px 40px;
+  background-color: #faf7f2;
 }
 .orderPage section form .priceCalculation .summary p {
   font-size: 1.3rem;
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 .orderPage section form .priceCalculation .summary p:nth-child(1) {
   color: #292929;
@@ -228,11 +284,46 @@ input::placeholder {
 }
 
 @media (max-width: 600px) {
-  .orderPage {
+  .orderPage .top-section {
     padding: 0px 20px;
   }
+
   .orderPage section form .paste select {
     max-width: 100%;
     overflow: hidden;
+  }
+  .orderPage section form {
+    gap: 30px;
+  }
+  .orderPage section form .size {
+    width: 100%;
+    align-items: center;
+  }
+  .orderPage section form .paste {
+    width: 100%;
+    align-items: center;
+    padding: 20px;
+  }
+  .orderPage section form .materials {
+    align-items: center;
+    padding: 20px;
+  }
+  .orderPage section form .priceCalculation {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .orderPage section form .priceCalculation {
+    gap: 20px;
+  }
+  .orderPage section form .priceCalculation .counter {
+    width: 100%;
+  }
+  .orderPage section form .priceCalculation .summary {
+    width: 100%;
+  }
+  .orderPage section form .priceCalculation .submit-button {
+    width: 100%;
   }
 }
