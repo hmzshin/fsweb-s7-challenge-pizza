@@ -195,14 +195,17 @@ const OrderPage = () => {
           <form onSubmit={handleSubmit}>
             <div className="size ">
               <p>
-                Boyut Seç
+                Boyut Seç{" "}
+                {validationErrors.size && (
+                  <span style={{ color: "red" }}>*</span>
+                )}
                 {isShown && validationErrors.size && (
                   <span data-cy="size-error" className="errorMessage">
                     {validationErrors.size}
                   </span>
                 )}
               </p>
-              <div>
+              <div className="label-container">
                 <label>
                   <input
                     onChange={handleChange}
@@ -241,7 +244,10 @@ const OrderPage = () => {
             </div>
             <div className="paste">
               <p>
-                Hamur Seç
+                Hamur Seç{" "}
+                {validationErrors.paste && (
+                  <span style={{ color: "red" }}>*</span>
+                )}
                 {isShown && validationErrors.paste && (
                   <span data-cy="paste-error" className="errorMessage">
                     {validationErrors.paste}
@@ -256,7 +262,7 @@ const OrderPage = () => {
                 data-cy="select-paste"
               >
                 <option value="default" disabled>
-                  Lütfen hamur tipini seç
+                  -Hamur Kalınlığını Seç-
                 </option>
                 <option value="thin">İnce Hamur</option>
                 <option value="normal">Normal Hamur</option>
