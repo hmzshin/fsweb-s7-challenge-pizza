@@ -34,7 +34,7 @@ footer .contact-info .left-box .address p {
   display: flex;
   gap: 10px;
   font-size: 1rem;
-  align-items: end;
+  align-items: flex-end;
 }
 footer .contact-info .left-box .address p img {
   height: 100%;
