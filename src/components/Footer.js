@@ -22,16 +22,16 @@ const Footer = () => {
               Yemekler
             </h2>
             <p>
-              <img src={footerIcon1} /> 341 Londonderry Road,
+              <img src={footerIcon1} alt="" /> 341 Londonderry Road,
               <br />
               Istanbul Türkiye
             </p>
             <p>
-              <img src={footerIcon2} />
+              <img src={footerIcon2} alt="" />
               acitim@teknolojikyemekler.com
             </p>
             <p>
-              <img src={footerIcon3} />
+              <img src={footerIcon3} alt="" />
               +902161234567
             </p>
           </section>
@@ -49,19 +49,19 @@ const Footer = () => {
         <div className="instagram">
           <p>Instagram</p>
           <div className="fotos">
-            <img src={instafoto1} />
-            <img src={instafoto2} />
-            <img src={instafoto3} />
-            <img src={instafoto4} />
-            <img src={instafoto5} />
-            <img src={instafoto6} />
+            <img src={instafoto1} alt="instagram-post" />
+            <img src={instafoto2} alt="instagram-post" />
+            <img src={instafoto3} alt="instagram-post" />
+            <img src={instafoto4} alt="instagram-post" />
+            <img src={instafoto5} alt="instagram-post" />
+            <img src={instafoto6} alt="instagram-post" />
           </div>
         </div>
       </div>
 
       <div className="copyright">
         <p>2023 Teknolojik Yemekler</p>
-        <img src={twitterlogo} />
+        <img src={twitterlogo} alt="" />
       </div>
     </footer>
   );

@@ -2,7 +2,6 @@ import React from "react";
 import "./HomePage.css";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.svg";
 import optionIcon1 from "../assets/adv-aseets/icons/1.svg";
 import optionIcon2 from "../assets/adv-aseets/icons/2.svg";
 import optionIcon3 from "../assets/adv-aseets/icons/3.svg";
@@ -36,27 +35,27 @@ const HomePage = () => {
       <section className="navbar">
         <ul>
           <li>
-            <img src={optionIcon1} />
+            <img src={optionIcon1} alt="" />
             <Link to="/">YENİ!Kore</Link>
           </li>
           <li>
-            <img src={optionIcon2} />
+            <img src={optionIcon2} alt="" />
             <Link to="/">Pizza</Link>
           </li>
           <li>
-            <img src={optionIcon3} />
+            <img src={optionIcon3} alt="" />
             <Link to="/">Burger</Link>
           </li>
           <li>
-            <img src={optionIcon4} />
+            <img src={optionIcon4} alt="" />
             <Link to="/">Kızartmalar</Link>
           </li>
           <li>
-            <img src={optionIcon5} />
+            <img src={optionIcon5} alt="" />
             <Link to="/">Fast food</Link>
           </li>
           <li>
-            <img src={optionIcon6} />
+            <img src={optionIcon6} alt="" />
             <Link to="/">Gazlı İçecekler</Link>
           </li>
         </ul>
@@ -95,35 +94,35 @@ const HomePage = () => {
             <nav>
               <ul>
                 <li>
-                  <img src={optionIcon1} />
-                  <Link>Ramen</Link>
+                  <img src={optionIcon1} alt="" />
+                  <Link to="/">Ramen</Link>
                 </li>
                 <li>
-                  <img src={optionIcon2} />
-                  <Link>Pizza</Link>
+                  <img src={optionIcon2} alt="" />
+                  <Link to="/">Pizza</Link>
                 </li>
                 <li>
-                  <img src={optionIcon3} />
-                  <Link>Burger</Link>
+                  <img src={optionIcon3} alt="" />
+                  <Link to="/">Burger</Link>
                 </li>
                 <li>
-                  <img src={optionIcon4} />
-                  <Link>French fries</Link>
+                  <img src={optionIcon4} alt="" />
+                  <Link to="/">French fries</Link>
                 </li>
                 <li>
-                  <img src={optionIcon5} />
-                  <Link>Fast food</Link>
+                  <img src={optionIcon5} alt="" />
+                  <Link to="/">Fast food</Link>
                 </li>
                 <li>
-                  <img src={optionIcon6} />
-                  <Link>Sosft drinks</Link>
+                  <img src={optionIcon6} alt="" />
+                  <Link to="/">Sosft drinks</Link>
                 </li>
               </ul>
             </nav>
           </div>
           <div className="bottom-box">
             <div className="pizzaCard">
-              <img src={menufood1} />
+              <img src={menufood1} alt="" />
               <p>Terminal Pizza</p>
               <p>
                 <span>4.9</span>
@@ -132,7 +131,7 @@ const HomePage = () => {
               </p>
             </div>
             <div className="pizzaCard">
-              <img src={menufood2} />
+              <img src={menufood2} alt="" />
               <p>Position Absolute Acı Pizza</p>
               <p>
                 <span>4.9</span>
@@ -142,7 +141,7 @@ const HomePage = () => {
             </div>
 
             <div className="pizzaCard">
-              <img src={menufood3} />
+              <img src={menufood3} alt="" />
               <p>useEffect Tavuklu Burger</p>
               <p>
                 <span>4.9</span>

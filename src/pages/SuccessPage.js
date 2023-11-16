@@ -1,7 +1,9 @@
 import React from "react";
 import "./SuccessPage.css";
 import Header from "../components/Header";
-const SuccessPage = () => {
+const SuccessPage = ({ orderDetails }) => {
+  console.log("orderDetails", orderDetails);
+
   return (
     <div className="successPage">
       <Header />

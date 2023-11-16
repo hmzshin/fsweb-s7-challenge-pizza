@@ -41,7 +41,7 @@ const defaultPizza = {
 let sizeM = 1;
 let thicknessM = 1;
 
-const OrderPage = () => {
+const OrderPage = ({ setOrderDetails }) => {
   // State to track order details
   const [order, setOrder] = useState(defaultPizza);
   // State for tracking calculated price
@@ -111,7 +111,7 @@ const OrderPage = () => {
         .post("https://reqres.in/api/users", summary)
         .then(function (response) {
           history.push("/success");
-          console.log("post request is succesful", response.data);
+          setOrderDetails(response.data);
         })
         .catch(function (error) {
           history.push("/");
@@ -173,7 +173,7 @@ const OrderPage = () => {
       <div className="orderPage">
         <div id="hero">
           <section className="top-section">
-            <img src={banner} />
+            <img src={banner} alt="pizza" />
             <h3 data-cy="orderpage-h3">Position Absolute Acı Pizza</h3>
             <p className="priceInfo">
               <span>85.50 TL</span>
