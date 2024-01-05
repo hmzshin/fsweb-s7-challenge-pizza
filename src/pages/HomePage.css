@@ -2,47 +2,55 @@
 font-family: 'Bebas Neue', sans-serif;
 font-family: 'Merienda', cursive;
 font-family: 'Roboto', sans-serif; */
+/* font-family: 'Satisfy', cursive; */
+/* Sarı #FDC913, Açık Gri: #5F5F5F, Koyu Gri #292929, Kırmızı #CE2829, Bej: #FAF7F2 */
 
 @import url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 
-.homePage {
+/* hero section */
+.homePage .hero {
   background-image: url("../assets/mvp-banner.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.homePage header {
+.homePage .hero header {
   display: flex;
   align-items: center;
   justify-content: center;
   max-width: 600px;
-  height: 20%;
+  height: 15%;
 }
 
-.homePage header h1 {
+.homePage .hero header h1 {
   font-family: "Londrina Solid", sans-serif;
   font-weight: 300;
   font-size: 2.5rem;
   color: white;
 }
 
-.homePage section {
+.homePage .hero section {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding-top: 20px;
-  height: 30%;
-  max-width: 600px;
+  max-width: 700px;
 }
 
-.homePage section p {
+.homePage .hero section p:nth-child(1) {
+  font-family: "Satisfy";
+  color: #fdc913;
+  font-size: 1.5rem;
+}
+.homePage .hero section p:nth-child(2) {
   width: 100%;
   font-size: 4rem;
   color: white;
@@ -51,7 +59,7 @@ font-family: 'Roboto', sans-serif; */
   font-weight: 100;
 }
 
-.homePage section button {
+.homePage .hero section button {
   height: 50px;
   width: 200px;
   font-weight: bold;
@@ -63,24 +71,377 @@ font-family: 'Roboto', sans-serif; */
   -moz-border-radius: 100px;
   -ms-border-radius: 100px;
   -o-border-radius: 100px;
+  margin-top: 20px;
 }
 
-.homePage section button a {
+.homePage .hero section button a {
   text-decoration: none;
 }
 
+/* navbar section */
+
+.homePage .navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0px;
+}
+.homePage .navbar ul {
+  font-family: "Barlow", sans-serif;
+  font-weight: bold;
+  list-style-type: none;
+  width: 70%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+}
+.homePage .navbar ul li {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.homePage .navbar ul li img {
+  height: 100%;
+}
+.homePage .navbar ul li a {
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+/* content section */
+.homePage .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #faf7f2;
+  padding-top: 100px;
+  gap: 100px;
+}
+
+.homePage .content .featured {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.homePage .content .featured button {
+  font-family: "Barlow", sans-serif;
+  width: 200px;
+  height: 50px;
+  background-color: white;
+  color: #ce2829;
+  font-weight: bold;
+  border-radius: 100px;
+  border: none;
+  font-size: 1rem;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
+}
+.homePage .content .featured .left-box {
+  background-image: url("../assets/adv-aseets/kart-1.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 50%;
+  height: 50vh;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.homePage .content .featured .left-box h3 {
+  font-family: "Quattrocento", serif;
+  font-size: 4rem;
+  color: white;
+}
+.homePage .content .featured .left-box p {
+  font-size: 1.2rem;
+  color: white;
+  font-family: "Barlow", sans-serif;
+}
+.homePage .content .featured .right-box {
+  width: 50%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.homePage .content .featured .right-box .top {
+  background-image: url("../assets/adv-aseets/kart-2.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 50%;
+  padding: 30px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  font-family: "Barlow", sans-serif;
+}
+.homePage .content .featured .right-box .top h4 {
+  color: white;
+  font-size: 2rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.homePage .content .featured .right-box .bottom {
+  background-image: url("../assets/adv-aseets/kart-3.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 50%;
+  padding: 30px;
+  font-size: 2rem;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  font-family: "Barlow", sans-serif;
+}
+
+.homePage .content .featured .right-box .bottom span {
+  color: #ce2829;
+}
+/* menu section */
+.homePage .content .menu {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  font-family: "Barlow", sans-serif;
+  padding-bottom: 50px;
+}
+.homePage .content .menu .top-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+.homePage .content .menu .top-box p {
+  height: 56px;
+}
+.homePage .content .menu .top-box p:nth-child(1) {
+  font-family: "Satisfy";
+  color: #ce2829;
+  font-size: 1.5rem;
+}
+.homePage .content .menu .top-box p:nth-child(2) {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #292929;
+}
+.homePage .content .menu .top-box nav {
+  width: 100%;
+}
+.homePage .content .menu .top-box nav ul {
+  list-style-type: none;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.homePage .content .menu .top-box nav ul li {
+  height: 80px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 40px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+  background-color: #ffffff;
+  font-weight: bold;
+}
+.homePage .content .menu .top-box nav ul li:hover {
+  background-color: #292929;
+}
+.homePage .content .menu .top-box nav ul li:hover > a {
+  color: white;
+}
+
+.homePage .content .menu .top-box nav ul li img {
+  height: 50%;
+}
+.homePage .content .menu .top-box nav ul li a {
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.homePage .content .menu .bottom-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.homePage .content .menu .bottom-box .pizzaCard {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: scale 0.3s;
+}
+.homePage .content .menu .bottom-box .pizzaCard:hover {
+  scale: 1.05;
+}
+.homePage .content .menu .bottom-box .pizzaCard img {
+  width: 80%;
+}
+.homePage .content .menu .bottom-box .pizzaCard p:nth-child(2) {
+  font-size: 1.3rem;
+  font-weight: bold;
+  align-self: flex-start;
+  padding-left: 30px;
+}
+.homePage .content .menu .bottom-box .pizzaCard p:nth-child(3) {
+  width: 100%;
+  padding: 20px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.homePage
+  .content
+  .menu
+  .bottom-box
+  .pizzaCard
+  p:nth-child(3)
+  span:nth-child(3) {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+@media (max-width: 1500px) {
+  .homePage .content .featured {
+    width: 90%;
+  }
+  .homePage .content .menu .bottom-box .pizzaCard p:nth-child(2) {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .homePage .content .featured {
+    width: 90%;
+  }
+  .homePage .content .menu .bottom-box .pizzaCard p:nth-child(2) {
+    font-size: 1rem;
+  }
+  .homePage .content .menu .bottom-box .pizzaCard {
+    font-size: 1rem;
+    height: 300px;
+  }
+}
+
+@media (max-width: 800px) {
+  .homePage .content .featured {
+    flex-direction: column;
+    width: 80%;
+  }
+  .homePage .content {
+    padding-top: 40px;
+  }
+  .homePage .content .featured .left-box {
+    width: 100%;
+  }
+  .homePage .content .featured .right-box {
+    width: 100%;
+  }
+  .homePage .content .featured button {
+    width: 150px;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    font-size: 1rem;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+  }
+  .homePage .content .menu {
+    justify-content: center;
+  }
+  .homePage .content .menu .top-box p:nth-child(2) {
+    font-size: 1.5rem;
+  }
+
+  .homePage .content .menu .top-box nav ul li {
+    height: 50px;
+    width: 150px;
+    justify-content: space-around;
+  }
+
+  .homePage .content .menu .bottom-box {
+    flex-direction: column;
+  }
+  .homePage .content .menu .bottom-box {
+    gap: 50px;
+  }
+  .homePage .content .menu .bottom-box .pizzaCard {
+    width: 100%;
+    height: auto;
+  }
+  .homePage .content .menu .bottom-box .pizzaCard p:nth-child(2) {
+    font-size: 1.5rem;
+  }
+}
+
 @media (max-width: 600px) {
-  .homePage header h1 {
+  .homePage .hero header h1 {
     font-size: 2rem;
   }
-  .homePage section p {
+  .homePage .hero section p {
     font-size: 3rem;
   }
-  .homePage section {
+  .homePage .hero section {
     padding-top: 10px;
     justify-content: space-around;
   }
-  .homePage section button {
+  .homePage .hero section button {
     height: 30px;
     width: 150px;
     border-radius: 50px;
@@ -88,5 +449,7 @@ font-family: 'Roboto', sans-serif; */
     -moz-border-radius: 50px;
     -ms-border-radius: 50px;
     -o-border-radius: 50px;
+  }
+  .homePage .content .menu .bottom-box .pizzaCard {
   }
 }

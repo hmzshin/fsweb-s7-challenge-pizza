@@ -6,6 +6,8 @@ import * as Yup from "yup";
 import axios from "axios";
 import Header from "../components/Header";
 import { useHistory } from "react-router-dom";
+import Footer from "../components/Footer";
+import banner from "../assets/adv-aseets/adv-form-banner.png";
 
 // Initial data for a default pizza configuration
 const defaultPizza = {
@@ -39,7 +41,7 @@ const defaultPizza = {
 let sizeM = 1;
 let thicknessM = 1;
 
-const OrderPage = () => {
+const OrderPage = ({ setOrderDetails }) => {
   // State to track order details
   const [order, setOrder] = useState(defaultPizza);
   // State for tracking calculated price
@@ -109,7 +111,7 @@ const OrderPage = () => {
         .post("https://reqres.in/api/users", summary)
         .then(function (response) {
           history.push("/success");
-          console.log("post request is succesful", response.data);
+          setOrderDetails(response.data);
         })
         .catch(function (error) {
           history.push("/");
@@ -169,66 +171,83 @@ const OrderPage = () => {
     <>
       <Header />
       <div className="orderPage">
+        <div id="hero">
+          <section className="top-section">
+            <img src={banner} alt="pizza" />
+            <h3 data-cy="orderpage-h3">Position Absolute Acı Pizza</h3>
+            <p className="priceInfo">
+              <span>85.50 TL</span>
+              <span>4.9 </span>
+              <span>(200)</span>
+            </p>
+            <p className="pizzaExplanation">
+              Frontent Dev olarak hala position:absolute kullanıyorsan bu çok
+              acı pizza tam sana göre. Pizza, domates, peynir ve genellikle
+              çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak
+              odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle
+              yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan
+              İtalyan kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen
+              pizzetta denir.
+            </p>
+          </section>
+        </div>
         <section>
-          <h3 data-cy="orderpage-h3">Position Absolute Acı Pizza</h3>
-          <p className="priceInfo">
-            <span>85.50 TL</span>
-            <span>4.9 </span>
-            <span>(200)</span>
-          </p>
-          <p className="pizzaExplanation">
-            Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı
-            pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli
-            diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun
-            ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle
-            yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan
-            kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta
-            denir.
-          </p>
           <form onSubmit={handleSubmit}>
             <div className="size ">
               <p>
-                Boyut Seç
+                Boyut Seç{" "}
+                {validationErrors.size && (
+                  <span style={{ color: "red" }}>*</span>
+                )}
                 {isShown && validationErrors.size && (
                   <span data-cy="size-error" className="errorMessage">
                     {validationErrors.size}
                   </span>
                 )}
               </p>
-              <label>
-                <input
-                  onChange={handleChange}
-                  type="radio"
-                  name="size"
-                  value="small"
-                  data-cy="small"
-                />
-                Küçük
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="size"
-                  onChange={handleChange}
-                  value="medium"
-                  data-cy="medium"
-                />
-                Orta
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="size"
-                  onChange={handleChange}
-                  value="large"
-                  data-cy="large"
-                />
-                Büyük
-              </label>
+              <div className="label-container">
+                <label>
+                  <input
+                    onChange={handleChange}
+                    type="radio"
+                    name="size"
+                    value="small"
+                    data-cy="small"
+                    className="small"
+                  />
+                  Küçük
+                </label>
+
+                <label>
+                  <input
+                    type="radio"
+                    name="size"
+                    onChange={handleChange}
+                    value="medium"
+                    data-cy="medium"
+                    className="medium"
+                  />
+                  Orta
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="size"
+                    onChange={handleChange}
+                    value="large"
+                    data-cy="large"
+                    className="large"
+                  />
+                  Büyük
+                </label>
+              </div>
             </div>
             <div className="paste">
               <p>
-                Hamur Seç
+                Hamur Seç{" "}
+                {validationErrors.paste && (
+                  <span style={{ color: "red" }}>*</span>
+                )}
                 {isShown && validationErrors.paste && (
                   <span data-cy="paste-error" className="errorMessage">
                     {validationErrors.paste}
@@ -243,7 +262,7 @@ const OrderPage = () => {
                 data-cy="select-paste"
               >
                 <option value="default" disabled>
-                  Lütfen hamur tipini seç
+                  -Hamur Kalınlığını Seç-
                 </option>
                 <option value="thin">İnce Hamur</option>
                 <option value="normal">Normal Hamur</option>
@@ -311,13 +330,13 @@ const OrderPage = () => {
                 data-cy="submit-button"
                 type="submit"
               >
-                {" "}
                 Sipariş Ver
               </button>
             </div>
           </form>
         </section>
       </div>
+      <Footer />
     </>
   );
 };

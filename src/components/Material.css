@@ -1,0 +1,20 @@
+input[id="materialList"] {
+  width: 45px;
+  height: 45px;
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  background-color: #fdc913;
+  appearance: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+input[id="materialList"]:checked {
+  background-image: url("../assets/adv-aseets/check-solid.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+}
